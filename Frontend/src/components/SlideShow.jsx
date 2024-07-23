@@ -31,7 +31,7 @@ function SlideShow() {
     if (!isTransitioning) {
       const interval = setInterval(() => {
         goToNext();
-      }, 3000); // Change slide every 3 seconds
+      }, 5000); // Change slide every 3 seconds
       return () => clearInterval(interval);
     }
   }, [isTransitioning]);
@@ -67,30 +67,21 @@ function SlideShow() {
       <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
         <div ref={slideShowRef} className="flex transition-transform duration-700 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
           <div className="w-full flex-shrink-0">
+            start
             <img src={images[images.length - 1]} className="block w-full" alt={`Slide ${images.length}`} />
           </div>
           {images.map((image, index) => (
             <div key={index} className="w-full flex-shrink-0">
+              middle
               <img src={image} className="block w-full" alt={`Slide ${index + 1}`} />
+              
             </div>
           ))}
-          <div className="w-full flex-shrink-0">
-            <img src={images[0]} className="block w-full" alt={`Slide 1`} />
-          </div>
+          
         </div>
       </div>
 
-      <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            type="button"
-            className={`w-3 h-3 rounded-full ${index === (currentIndex % images.length) ? 'bg-white' : 'bg-gray-500'}`}
-            aria-label={`Slide ${index + 1}`}
-            onClick={() => setCurrentIndex(index)}
-          ></button>
-        ))}
-      </div>
+      
 
       <button
         type="button"
