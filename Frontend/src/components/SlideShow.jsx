@@ -31,7 +31,7 @@ function SlideShow() {
     if (!isTransitioning) {
       const interval = setInterval(() => {
         goToNext();
-      }, 5000); // Change slide every 3 seconds
+      }, 5000); // Change slide every 5 seconds
       return () => clearInterval(interval);
     }
   }, [isTransitioning]);
@@ -39,18 +39,20 @@ function SlideShow() {
   const goToPrevious = () => {
     if (!isTransitioning) {
       setIsTransitioning(true);
-      setCurrentIndex((prevIndex) => prevIndex - 1);
+      const newIndex = currentIndex - 1;
+      setCurrentIndex(newIndex < 0 ? images.length - 1 : newIndex);
       slideShowRef.current.style.transition = 'transform 0.7s ease-in-out';
-      slideShowRef.current.style.transform = `translateX(-${(currentIndex - 1) * 100}%)`;
+      slideShowRef.current.style.transform = `translateX(-${(newIndex < 0 ? images.length - 1 : newIndex) * 100}%)`;
     }
   };
 
   const goToNext = () => {
     if (!isTransitioning) {
       setIsTransitioning(true);
-      setCurrentIndex((prevIndex) => prevIndex + 1);
+      const newIndex = currentIndex + 1;
+      setCurrentIndex(newIndex);
       slideShowRef.current.style.transition = 'transform 0.7s ease-in-out';
-      slideShowRef.current.style.transform = `translateX(-${(currentIndex + 1) * 100}%)`;
+      slideShowRef.current.style.transform = `translateX(-${newIndex * 100}%)`;
     }
   };
 
@@ -63,35 +65,30 @@ function SlideShow() {
   }, [currentIndex]);
 
   return (
-    <div id="default-carousel" className="relative w-full" data-carousel="slide">
-      <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
+    <div className="relative w-full h-[100vh]">
+      <div className="relative h-full overflow-hidden rounded-lg">
         <div ref={slideShowRef} className="flex transition-transform duration-700 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
           <div className="w-full flex-shrink-0">
             start
             <img src={images[images.length - 1]} className="block w-full" alt={`Slide ${images.length}`} />
           </div>
-            
-             
+          
           {images.map((image, index) => (
-            <div key={index} className="w-full flex-shrink-0">
-              {currentIndex===(index+1) && <div className={`flex animate__animated ${currentIndex%2===0?'animate__fadeInRight justify-end':'animate__fadeInLeft justify-start'} animate__delay-1s`}>
-
-              <div className=' animate__animated animate__fadeInLeft  '>1{currentIndex}</div>
-              <div className=' animate__animated animate__fadeInLeft  '>2</div>
-              <div className=' animate__animated animate__fadeInLeft  '>3</div>
-              <div className=' animate__animated animate__fadeInLeft  '>4</div>
-              </div> }
-              
-
-              <img src={image} className="block w-full" alt={`Slide ${index + 1}`} />
-               
+            <div key={index} className={`w-full flex-shrink-0 animate__animated ${currentIndex === (index + 1) ? '' : 'animate__fadeOut animate__faster'}`}>
+              <div style={{ backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundPosition: 'center', width: '100%', height: '100%' }} className={`animate__animated ${currentIndex === (index + 1) ? 'animate__fadeIn animate__slower' : ''}`}>
+                {currentIndex === (index + 1) && (
+                  <div className={`flex animate__animated ${currentIndex % 2 === 0 ? 'animate__fadeInRight justify-end' : 'animate__fadeInLeft justify-start'} animate__delay-1s`}>
+                    <div className='animate__animated animate__fadeInLeft'>1{currentIndex}</div>
+                    <div className='animate__animated animate__fadeInLeft'>2</div>
+                    <div className='animate__animated animate__fadeInLeft'>3</div>
+                    <div className='animate__animated animate__fadeInLeft'>4</div>
+                  </div>
+                )}
+              </div>
             </div>
           ))}
-          
         </div>
       </div>
-
-      
 
       <button
         type="button"
@@ -121,7 +118,7 @@ function SlideShow() {
         type="button"
         className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
         onClick={goToNext}
-      >        
+      >
         <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
           <svg
             className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
