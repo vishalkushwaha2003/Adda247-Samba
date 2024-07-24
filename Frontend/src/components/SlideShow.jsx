@@ -70,11 +70,21 @@ function SlideShow() {
             start
             <img src={images[images.length - 1]} className="block w-full" alt={`Slide ${images.length}`} />
           </div>
+            
+             
           {images.map((image, index) => (
             <div key={index} className="w-full flex-shrink-0">
-              middle
-              <img src={image} className="block w-full" alt={`Slide ${index + 1}`} />
+              {currentIndex===(index+1) && <div className={`flex animate__animated ${currentIndex%2===0?'animate__fadeInRight justify-end':'animate__fadeInLeft justify-start'} animate__delay-1s`}>
+
+              <div className=' animate__animated animate__fadeInLeft  '>1{currentIndex}</div>
+              <div className=' animate__animated animate__fadeInLeft  '>2</div>
+              <div className=' animate__animated animate__fadeInLeft  '>3</div>
+              <div className=' animate__animated animate__fadeInLeft  '>4</div>
+              </div> }
               
+
+              <img src={image} className="block w-full" alt={`Slide ${index + 1}`} />
+               
             </div>
           ))}
           
@@ -111,7 +121,7 @@ function SlideShow() {
         type="button"
         className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
         onClick={goToNext}
-      >
+      >        
         <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
           <svg
             className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
