@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import {useTheme} from '../context/ColorContext';
+import DarkLightToggleButton from './DarkLightToggleButton';
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const {theme, toggleTheme, color, changeColor } = useTheme();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -35,6 +39,14 @@ const Navbar = () => {
             <a href="/contact" className="text-gray-300 hover:text-white block md:inline-block">Contact</a>
           </li>
         </ul>
+        <DarkLightToggleButton/>
+        <input    
+  type="color"
+  id="colorPicker"
+  onChange={(e) => changeColor(e.target.value)}
+  value={color}
+  className="h-7 w-7  cursor-pointer rounded-full bg-transparent"
+/>
       </div>
     </nav>
   );

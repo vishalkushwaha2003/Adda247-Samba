@@ -1,12 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
-import p from '../assets/myphoto1.png';
+import p1 from '../assets/personGo1.png';
+import p3 from '../assets/girl1.png'
+import p2 from '../assets/sketch.jpg'
+import p4 from '../assets/boys1.jpg'
 
 const images = [
-  p,
-  p,
-  p,
-  p,
-  p,
+  p1,
+  p2,
+  p3,
+  p4,
+  
 ];
 
 function SlideShow() {
@@ -68,8 +71,8 @@ function SlideShow() {
     <div className="relative w-full h-[100vh]">
       <div className="relative h-full overflow-hidden rounded-lg">
         <div ref={slideShowRef} className="flex transition-transform duration-700 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
-          <div className="w-full flex-shrink-0">
-            start
+          <div className={`w-full flex-shrink-0 animate__animated  ${currentIndex%4===0?'animate__fadeIn':''}`}>
+            
             <img src={images[images.length - 1]} className="block w-full" alt={`Slide ${images.length}`} />
           </div>
           
@@ -92,10 +95,13 @@ function SlideShow() {
 
       <button
         type="button"
-        className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+        className="absolute top-0 left-0  flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
         onClick={goToPrevious}
       >
-        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+        
+        onClick={goToPrevious}
+        >
           <svg
             className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
             aria-hidden="true"
