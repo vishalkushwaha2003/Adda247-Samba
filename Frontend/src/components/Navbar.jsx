@@ -1,55 +1,133 @@
-import React, { useState } from 'react';
-import {useTheme} from '../context/ColorContext';
-import DarkLightToggleButton from './DarkLightToggleButton';
-
+import React, { useState } from "react";
+import { useTheme } from "../context/ColorContext";
+import DarkLightToggleButton from "./DarkLightToggleButton";
+import Button from "@mui/material/Button";
+import logo from "../assets/logo2.png";
+import SidebarMenu from "./SidebarMenu";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const {theme, toggleTheme, color, changeColor } = useTheme();
+  const { theme, toggleTheme, color, changeColor } = useTheme();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <nav className="bg-gray-800 p-4 fixed w-full z-10 top-0">
-      <div className="container mx-auto flex justify-between items-center">
-        <div className="text-white text-2xl font-bold">
-          MyWebsite
-        </div>
+    <nav className="bg-slate-100 dark:bg-slate-900 duration-200 h-20 fixed w-full z-10 top-0">
+      <div className=" w-[90%] h-full m-auto flex justify-between items-center">
+        
+        <img src={logo} alt="Logo" className="object-fill h-16 w-32 " />
+
         <div className="md:hidden">
-          <button onClick={toggleMenu} className="text-gray-300 hover:text-white focus:outline-none">
-            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}></path>
+          <button
+            onClick={toggleMenu}
+            className="text-gray-300 hover:text-white focus:outline-none"
+          >
+            <svg
+              className="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+              ></path>
             </svg>
-            
           </button>
         </div>
-        <ul className={`md:flex space-x-4 ${isOpen ? 'block' : 'hidden'} md:block`}>
-          <li>
-            <a href="/" className="text-gray-300 hover:text-white block md:inline-block">Home</a>
-          </li>
-          <li>
-            <a href="/about" className="text-gray-300 hover:text-white block md:inline-block">About</a>
-          </li>
-          <li>
-            <a href="/services" className="text-gray-300 hover:text-white block md:inline-block">Services</a>
-          </li>
-          <li>
-            <a href="/contact" className="text-gray-300 hover:text-white block md:inline-block">Contact</a>
-          </li>
-        </ul>
-        <DarkLightToggleButton/>
-        <input    
-  type="color"
-  id="colorPicker"
-  onChange={(e) => changeColor(e.target.value)}
-  value={color}
-  className="h-7 w-7  cursor-pointer rounded-full bg-transparent"
-/>
+        <div className="flex gap-2">
+          <Button
+            variant="outlined"
+            sx={{
+              color: color,
+              borderColor: color,
+              "&:hover": { borderColor: color },
+              fontWeight: 'bold',
+            }}
+          >
+            Home
+          </Button>
+          <Button
+            variant="outlined"
+            sx={{
+              color: color,
+              borderColor: color,
+              "&:hover": { borderColor: color },
+              fontWeight: 'bold',
+            }}
+          >
+            Courses
+          </Button>
+          
+          <Button
+            variant="outlined"
+            sx={{
+              color: color,
+              borderColor: color,
+              "&:hover": { borderColor: color },
+              fontWeight: 'bold',
+            }}
+          >
+            Faculty
+          </Button>
+          <Button
+            variant="outlined"
+            sx={{
+              color: color,
+              borderColor: color,
+              "&:hover": { borderColor: color },
+              fontWeight: 'bold',
+            }}
+          >
+            Resistration
+          </Button>
+          <Button
+            variant="outlined"
+            sx={{
+              color: color,
+              borderColor: color,
+              "&:hover": { borderColor: color },
+              fontWeight: 'bold',
+            }}
+          >
+            About
+          </Button>
+          <Button
+            variant="outlined"
+            sx={{
+              color: color,
+              borderColor: color,
+              "&:hover": { borderColor: color },
+              fontWeight: 'bold',
+            }}
+          >
+            Contact
+          </Button>
+        </div>
+        <div className="flex items-center gap-10">
+          <div className="flex items-center gap-2">
+          <DarkLightToggleButton />
+          <input
+            type="color"
+            id="colorPicker"
+            onChange={(e) => changeColor(e.target.value)}
+            value={color}
+            className="h-7 w-7  cursor-pointer rounded-full bg-transparent"
+          />
+          
+          </div>
+  <SidebarMenu/>
+          
+        </div>
+        
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;

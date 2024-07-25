@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
+import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
+import { useTheme } from "../context/ColorContext";
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+
 
 const SidebarMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { theme, toggleTheme, color, changeColor } = useTheme();
+
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -9,12 +15,10 @@ const SidebarMenu = () => {
 
   return (
     <div className="relative z-10">
-      <button 
-        onClick={toggleSidebar} 
-        className="p-2 bg-blue-500 text-white rounded"
-      >
-        Toggle Sidebar
-      </button>
+      {isOpen?<CloseOutlinedIcon fontSize="large" className="hover:cursor-pointer"  sx={{color:color}} onClick={toggleSidebar} />:<MenuOutlinedIcon fontSize="large" className="hover:cursor-pointer"
+            sx={{color:color}}
+            onClick={toggleSidebar}
+          />}
       <div 
         className={`fixed top-0 left-0 h-full w-64 bg-gray-800 text-white transform transition-transform duration-300 ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
