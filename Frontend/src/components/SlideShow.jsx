@@ -71,9 +71,10 @@ function SlideShow() {
       <div className="relative h-full overflow-hidden rounded-lg">
         <div ref={slideShowRef} className="flex transition-transform duration-700 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
           <div className={`w-full flex-shrink-0 animate__animated ${currentIndex % 4 === 0 ? 'animate__fadeIn animate__slower' : ''}`}>
-            <img src={images[images.length - 1]} className="vintage vignette w-[80vw] mx-auto h-[100vh] object-fill" alt={`Slide ${images.length}`} />
+            <div className="relative w-[80vw] mx-auto h-[100vh]">
+              <img src={images[images.length - 1]} className="vintage vignette absolute top-0 left-0 w-full h-full object-cover" alt={`Slide ${images.length}`} style={{ WebkitMaskImage: 'radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)', maskImage: 'radial-gradient(circle, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 90%)' }} />
+            </div>
           </div>
-          
           {images.map((image, index) => (
             <div key={index} className={`relative w-full flex-shrink-0 animate__animated ${currentIndex === (index + 1) ? '' : 'animate__fadeOut animate__faster'}`}>
               {currentIndex === (index + 1) && (
@@ -84,12 +85,13 @@ function SlideShow() {
                   <div className='animate__animated animate__fadeInLeft'>4</div>
                 </div>
               )}
-              <img src={image} className={`vintage vignette w-[80vw] mx-auto h-[100vh] object-fill animate__animated ${currentIndex === (index + 1) ? 'animate__fadeIn animate__slower' : ''} `} alt={`Slide ${index + 1}`} />
+              <div className="relative w-[80vw] mx-auto h-[100vh]">
+                <img src={image} className={`vintage vignette absolute top-0 left-0 w-full h-full object-cover animate__animated ${currentIndex === (index + 1) ? 'animate__fadeIn animate__slower' : ''}`} alt={`Slide ${index + 1}`} style={{ WebkitMaskImage: 'radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)', maskImage: 'radial-gradient(circle, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 90%)' }} />
+              </div>
             </div>
           ))}
         </div>
       </div>
-
       <button
         type="button"
         className="absolute top-0 left-0 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
