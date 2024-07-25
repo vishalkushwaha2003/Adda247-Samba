@@ -4,6 +4,7 @@ import { useTheme } from "../context/ColorContext";
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 
 
+
 const SidebarMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, toggleTheme, color, changeColor } = useTheme();
@@ -20,19 +21,14 @@ const SidebarMenu = () => {
             onClick={toggleSidebar}
           />}
       <div 
-        className={`fixed top-0 left-0 h-full w-64 bg-gray-800 text-white transform transition-transform duration-300 ${
+        className={`fixed top-0 left-0 h-full w-64 bg-slate-800  text-white transform transition-transform duration-300 ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
         <div className="p-4">
           <div className="flex justify-between items-center">
             <h2 className="text-xl font-semibold">Sidebar Menu</h2>
-            <button 
-              onClick={toggleSidebar} 
-              className="p-2 bg-red-500 text-white rounded"
-            >
-              Close
-            </button>
+            <CloseOutlinedIcon fontSize="large" className="hover:cursor-pointer"  sx={{color:color}} onClick={toggleSidebar}  />
           </div>
           <ul className="mt-4">
             <li className="py-2"><a href="#" className="hover:underline">Item 1</a></li>
