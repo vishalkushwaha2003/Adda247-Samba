@@ -198,7 +198,7 @@ ul li:first-child {
 
 
  .vintage {
-  filter: sepia(0.1) contrast(1.2) brightness(0.9) saturate(0.8);
+  filter: sepia(0.2) contrast(1.2) brightness(0.9) saturate(0.8);
 }
 
 .vignette {

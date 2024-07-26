@@ -96,7 +96,7 @@ function SlideShow() {
         >
           <div
             className={`w-full flex-shrink-0 bg-slate-500 dark:bg-slate-800 animate__animated ${
-              currentIndex % 4 === 0 ? "animate__fadeIn animate__slower" : ""
+              currentIndex % 4 === 0 ? "animate__fadeIn animate__slower" : "animate__fadeOut animate__fast"
             }`}
           >
             <div className="relative w-[100vw] mx-auto h-[100vh]">
@@ -104,7 +104,7 @@ function SlideShow() {
               
               
               <div className="flex items-center justify-center  bg-transparent">
-       <TextTypeWriter text="Hello, welcome to my website" speed={100} currentIndex={currentIndex+1}/>
+       <TextTypeWriter text="Hello, welcome to my website" speed={100} currentIndex={currentIndex}/>
     </div>
 
 
