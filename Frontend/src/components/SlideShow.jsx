@@ -5,6 +5,7 @@ import p2 from '../assets/lamp.png';
 import p3 from '../assets/girl1.jpg';
 import p1 from '../assets/personGo.png';
 import p4 from '../assets/boys1.jpg';
+import SlideStrip from './SlideStrip';
 
 const images = [
   p1,
@@ -13,6 +14,8 @@ const images = [
   p4,
 ];
 
+
+const content=[['Expert Faculty','Supportive Environment','High Success Rate','Comprehensive Study Material'],['Peer Learning','Regular Assessments','Innovative Teaching Methods','Personalized Learning Experience'],['Library space','Progress Tracking','Innovative Teaching Methods','Comprehensive Course Offerings']]
 function SlideShow() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -79,13 +82,16 @@ function SlideShow() {
           </div>
           {images.map((image, index) => (
             <div key={index} className={`relative w-full flex-shrink-0 bg-slate-500 dark:bg-slate-800 duration-200 animate__animated ${currentIndex === (index + 1) ? '' : 'animate__fadeOut animate__faster'}`}>
-              {currentIndex === (index + 1) && (
-                <div className={`absolute top-0 left-0 w-full z-10 flex animate__animated ${currentIndex % 2 === 0 ? 'animate__fadeInRight justify-end' : 'animate__fadeInLeft justify-start'} animate__delay-1s`}>
-                  <div className='animate__animated animate__fadeInLeft'>1{currentIndex}</div>
-                  <div className='animate__animated animate__fadeInLeft'>2</div>
-                  <div className='animate__animated animate__fadeInLeft'>3</div>
-                  <div className='animate__animated animate__fadeInLeft'>4</div>
+              {currentIndex === (index + 1) && index<3 && (
+                
+                 <div className={`absolute top-0 left-0 w-full z-10 flex flex-col animate__animated ${currentIndex % 2 === 0 ? 'animate__fadeInRight items-end' : 'animate__fadeInLeft items-start'} animate__delay-1s`}>
+                  <div className='animate__animated animate__fadeInLeft'><SlideStrip content={content[index][0]}/></div>
+                  <div className='animate__animated animate__fadeInLeft'><SlideStrip content={content[index][1]}/></div>
+                  <div className='animate__animated animate__fadeInLeft'><SlideStrip content={content[index][2]}/></div>
+                  <div className='animate__animated animate__fadeInLeft'><SlideStrip content={content[index][3]}/></div>
+                  {console.log(index)}
                 </div>
+                
               )}
               <div className="relative w-[100vw] bg-transparent mx-auto h-[100vh]">
                 <img src={image} className={`vintage vignette absolute top-0 left-0 w-full h-full object-cover  animate__animated ${currentIndex === (index + 1) ? 'animate__fadeIn animate__slower' : ''}`} alt={`Slide ${index + 1}`} style={{ WebkitMaskImage: 'radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)', maskImage: 'radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%)', backgroundColor:color }} />
