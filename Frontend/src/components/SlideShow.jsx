@@ -6,21 +6,36 @@ import p3 from '../assets/girl1.jpg';
 import p1 from '../assets/personGo.png';
 import p4 from '../assets/boys1.jpg';
 import SlideStrip from './SlideStrip';
-
-const images = [
-  p1,
-  p2,
-  p3,
-  p4,
-];
+import TextTypeWriter from './TextTypeWriter'
 
 
-const content=[['Expert Faculty','Supportive Environment','High Success Rate','Comprehensive Study Material'],['Peer Learning','Regular Assessments','Innovative Teaching Methods','Personalized Learning Experience'],['Library space','Progress Tracking','Innovative Teaching Methods','Comprehensive Course Offerings']]
+
+
 function SlideShow() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const slideShowRef = useRef(null);
   const {color}=useTheme();
+  const content=[['Expert Faculty','High Success Rate','Supportive Environment','Comprehensive Study Material'],['Peer Learning','Regular Assessments','Innovative Teaching Methods','Personalized Learning Experience'],['Library space','Progress Tracking','Innovative Teaching Methods','Comprehensive Course Offerings']]
+  const images = [
+    p1,
+    p2,
+    p3,
+    p4,
+  ];
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
   const handleTransitionEnd = () => {
     setIsTransitioning(false);
     if (currentIndex === images.length) {
@@ -74,27 +89,89 @@ function SlideShow() {
   return (
     <div className="w-full mt-20 h-[100vh]">
       <div className="relative h-full bg-slate-500 dark:bg-slate-800 duration-200 overflow-hidden rounded-lg">
-        <div ref={slideShowRef} className="flex  transition-transform duration-700 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
-          <div className={`w-full flex-shrink-0 bg-slate-500 dark:bg-slate-800 animate__animated ${currentIndex % 4 === 0 ? 'animate__fadeIn animate__slower' : ''}`}>
+        <div
+          ref={slideShowRef}
+          className="flex  transition-transform duration-700 ease-in-out"
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        >
+          <div
+            className={`w-full flex-shrink-0 bg-slate-500 dark:bg-slate-800 animate__animated ${
+              currentIndex % 4 === 0 ? "animate__fadeIn animate__slower" : ""
+            }`}
+          >
             <div className="relative w-[100vw] mx-auto h-[100vh]">
-              <img src={images[images.length - 1]} className="vintage vignette absolute top-0 left-0 w-full h-full object-cover" alt={`Slide ${images.length}`} style={{ WebkitMaskImage: 'radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)', maskImage: 'radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 120%)' }} />
+              <div className="absolute h-full flex bg-transparent justify-center items-center w-full z-10">
+              
+              
+              <div className="flex items-center justify-center  bg-transparent">
+       <TextTypeWriter text="Hello, welcome to my website" speed={100} currentIndex={currentIndex+1}/>
+    </div>
+
+
+
+              </div>
+              <img
+                src={images[images.length - 1]}
+                className="vintage vignette absolute top-0 left-0 w-full h-full object-cover"
+                alt={`Slide ${images.length}`}
+                style={{
+                  WebkitMaskImage:
+                    "radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)",
+                  maskImage:
+                    "radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 120%)",
+                }}
+              />
             </div>
           </div>
           {images.map((image, index) => (
-            <div key={index} className={`relative w-full flex-shrink-0 bg-slate-500 dark:bg-slate-800 duration-200 animate__animated ${currentIndex === (index + 1) ? '' : 'animate__fadeOut animate__faster'}`}>
-              {currentIndex === (index + 1) && index<3 && (
-                
-                 <div className={`absolute top-0 left-0 w-full z-10 flex flex-col animate__animated ${currentIndex % 2 === 0 ? 'animate__fadeInRight items-end' : 'animate__fadeInLeft items-start'} animate__delay-1s`}>
-                  <div className='animate__animated animate__fadeInLeft'><SlideStrip content={content[index][0]}/></div>
-                  <div className='animate__animated animate__fadeInLeft'><SlideStrip content={content[index][1]}/></div>
-                  <div className='animate__animated animate__fadeInLeft'><SlideStrip content={content[index][2]}/></div>
-                  <div className='animate__animated animate__fadeInLeft'><SlideStrip content={content[index][3]}/></div>
+            <div
+              key={index}
+              className={`relative w-full flex-shrink-0 bg-slate-500 dark:bg-slate-800 duration-200 animate__animated ${
+                currentIndex === index + 1
+                  ? ""
+                  : "animate__fadeOut animate__faster"
+              }`}
+            >
+              {currentIndex === index + 1 && index < 3 && (
+                <div
+                  className={`absolute top-0 left-0 w-full z-10 flex flex-col animate__animated ${
+                    currentIndex % 2 === 0
+                      ? "animate__fadeInRight items-end"
+                      : "animate__fadeInLeft items-start"
+                  } animate__delay-1s`}
+                >
+                  <div className="animate__animated animate__fadeInLeft">
+                    <SlideStrip content={content[index][0]} />
+                  </div>
+                  <div className="animate__animated animate__fadeInLeft">
+                    <SlideStrip content={content[index][1]} />
+                  </div>
+                  <div className="animate__animated animate__fadeInLeft">
+                    <SlideStrip content={content[index][2]} />
+                  </div>
+                  <div className="animate__animated animate__fadeInLeft">
+                    <SlideStrip content={content[index][3]} />
+                  </div>
                   {console.log(index)}
                 </div>
-                
               )}
               <div className="relative w-[100vw] bg-transparent mx-auto h-[100vh]">
-                <img src={image} className={`vintage vignette absolute top-0 left-0 w-full h-full object-cover  animate__animated ${currentIndex === (index + 1) ? 'animate__fadeIn animate__slower' : ''}`} alt={`Slide ${index + 1}`} style={{ WebkitMaskImage: 'radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)', maskImage: 'radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%)', backgroundColor:color }} />
+                <img
+                  src={image}
+                  className={`vintage vignette absolute top-0 left-0 w-full h-full object-cover  animate__animated ${
+                    currentIndex === index + 1
+                      ? "animate__fadeIn animate__slower"
+                      : ""
+                  }`}
+                  alt={`Slide ${index + 1}`}
+                  style={{
+                    WebkitMaskImage:
+                      "radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)",
+                    maskImage:
+                      "radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%)",
+                    backgroundColor: color,
+                  }}
+                />
               </div>
             </div>
           ))}
@@ -103,16 +180,17 @@ function SlideShow() {
       <button
         type="button"
         className="absolute top-0 left-0 flex items-center justify-center h-full px-4  group focus:outline-none"
-       
       >
-        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-slate-500/30 dark:bg-slate-500/30 group-hover:bg-slate-500/40 dark:group-hover:bg-slate-500/40 group-focus:ring-2 group-focus:ring-slate-500/50 dark:group-focus:ring-slate-500/50  group-focus:outline-none" onClick={goToPrevious}>
+        <span
+          className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-slate-500/30 dark:bg-slate-500/30 group-hover:bg-slate-500/40 dark:group-hover:bg-slate-500/40 group-focus:ring-2 group-focus:ring-slate-500/50 dark:group-focus:ring-slate-500/50  group-focus:outline-none"
+          onClick={goToPrevious}
+        >
           <svg
             className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 6 10"
-            
           >
             <path
               stroke="currentColor"
@@ -128,16 +206,17 @@ function SlideShow() {
       <button
         type="button"
         className="absolute top-0 right-0 flex items-center justify-center h-full px-4 group focus:outline-none "
-        
       >
-        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-slate-500/30 dark:bg-slate-500/30 group-hover:bg-slate-500/40 dark:group-hover:bg-slate-500/40 group-focus:ring-2 group-focus:ring-slate-500/50 dark:group-focus:ring-slate-500/50 group-focus:outline-none" onClick={goToNext}>
+        <span
+          className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-slate-500/30 dark:bg-slate-500/30 group-hover:bg-slate-500/40 dark:group-hover:bg-slate-500/40 group-focus:ring-2 group-focus:ring-slate-500/50 dark:group-focus:ring-slate-500/50 group-focus:outline-none"
+          onClick={goToNext}
+        >
           <svg
             className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 6 10"
-            
           >
             <path
               stroke="currentColor"
