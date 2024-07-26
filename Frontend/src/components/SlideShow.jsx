@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useTheme } from "../context/ColorContext";
 
-import p1 from '../assets/personGo1.png';
-import p3 from '../assets/girl1.png';
-import p2 from '../assets/sketch.jpg';
+import p2 from '../assets/lamp.png';
+import p3 from '../assets/girl1.jpg';
+import p1 from '../assets/personGo.png';
 import p4 from '../assets/boys1.jpg';
 
 const images = [
@@ -70,15 +70,15 @@ function SlideShow() {
 
   return (
     <div className="w-full mt-20 h-[100vh]">
-      <div className="relative h-full bg-slate-300 dark:bg-slate-800 duration-200 overflow-hidden rounded-lg">
+      <div className="relative h-full bg-slate-500 dark:bg-slate-800 duration-200 overflow-hidden rounded-lg">
         <div ref={slideShowRef} className="flex  transition-transform duration-700 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
-          <div className={`w-full flex-shrink-0 bg-slate-300 dark:bg-slate-800 animate__animated ${currentIndex % 4 === 0 ? 'animate__fadeIn animate__slower' : ''}`}>
-            <div className="relative w-[90vw] mx-auto h-[100vh]">
-              <img src={images[images.length - 1]} className="vintage vignette absolute top-0 left-0 w-full h-full object-cover" alt={`Slide ${images.length}`} style={{ WebkitMaskImage: 'radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)', maskImage: 'radial-gradient(circle, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 90%)' }} />
+          <div className={`w-full flex-shrink-0 bg-slate-500 dark:bg-slate-800 animate__animated ${currentIndex % 4 === 0 ? 'animate__fadeIn animate__slower' : ''}`}>
+            <div className="relative w-[100vw] mx-auto h-[100vh]">
+              <img src={images[images.length - 1]} className="vintage vignette absolute top-0 left-0 w-full h-full object-cover" alt={`Slide ${images.length}`} style={{ WebkitMaskImage: 'radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)', maskImage: 'radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 120%)' }} />
             </div>
           </div>
           {images.map((image, index) => (
-            <div key={index} className={`relative w-full flex-shrink-0 bg-slate-300 dark:bg-slate-800 duration-200 animate__animated ${currentIndex === (index + 1) ? '' : 'animate__fadeOut animate__faster'}`}>
+            <div key={index} className={`relative w-full flex-shrink-0 bg-slate-500 dark:bg-slate-800 duration-200 animate__animated ${currentIndex === (index + 1) ? '' : 'animate__fadeOut animate__faster'}`}>
               {currentIndex === (index + 1) && (
                 <div className={`absolute top-0 left-0 w-full z-10 flex animate__animated ${currentIndex % 2 === 0 ? 'animate__fadeInRight justify-end' : 'animate__fadeInLeft justify-start'} animate__delay-1s`}>
                   <div className='animate__animated animate__fadeInLeft'>1{currentIndex}</div>
@@ -87,8 +87,8 @@ function SlideShow() {
                   <div className='animate__animated animate__fadeInLeft'>4</div>
                 </div>
               )}
-              <div className="relative w-[90vw] bg-transparent mx-auto h-[100vh]">
-                <img src={image} className={`vintage vignette absolute top-0 left-0 w-full h-full object-cover  animate__animated ${currentIndex === (index + 1) ? 'animate__fadeIn animate__slower' : ''}`} alt={`Slide ${index + 1}`} style={{ WebkitMaskImage: 'radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)', maskImage: 'radial-gradient(circle, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 90%)', backgroundColor:color }} />
+              <div className="relative w-[100vw] bg-transparent mx-auto h-[100vh]">
+                <img src={image} className={`vintage vignette absolute top-0 left-0 w-full h-full object-cover  animate__animated ${currentIndex === (index + 1) ? 'animate__fadeIn animate__slower' : ''}`} alt={`Slide ${index + 1}`} style={{ WebkitMaskImage: 'radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)', maskImage: 'radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%)', backgroundColor:color }} />
               </div>
             </div>
           ))}
