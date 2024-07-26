@@ -53,7 +53,7 @@ function SlideShow() {
     if (!isTransitioning) {
       const interval = setInterval(() => {
         goToNext();
-      }, 5000); // Change slide every 5 seconds
+      }, 8000); // Change slide every 5 seconds
       return () => clearInterval(interval);
     }
   }, [isTransitioning]);
@@ -134,22 +134,22 @@ function SlideShow() {
             >
               {currentIndex === index + 1 && index < 3 && (
                 <div
-                  className={`absolute top-0 left-0 w-full z-10 flex flex-col animate__animated ${
+                  className={`absolute p-20  w-full z-10 flex flex-col gap-5 animate__animated ${
                     currentIndex % 2 === 0
-                      ? "animate__fadeInRight items-end"
-                      : "animate__fadeInLeft items-start"
+                      ? "animate__fadeInRight items-end "
+                      : "animate__fadeInLeft items-start  "
                   } animate__delay-1s`}
                 >
-                  <div className="animate__animated animate__fadeInLeft">
+                  <div className="animate__animated animate__fadeInLeft animate__slower">
                     <SlideStrip content={content[index][0]} />
                   </div>
-                  <div className="animate__animated animate__fadeInLeft">
+                  <div className="animate__animated animate__fadeInLeft animate__slower">
                     <SlideStrip content={content[index][1]} />
                   </div>
-                  <div className="animate__animated animate__fadeInLeft">
+                  <div className="animate__animated animate__fadeInLeft animate__slower">
                     <SlideStrip content={content[index][2]} />
                   </div>
-                  <div className="animate__animated animate__fadeInLeft">
+                  <div className="animate__animated animate__fadeInLeft animate__slower">
                     <SlideStrip content={content[index][3]} />
                   </div>
                   {console.log(index)}
