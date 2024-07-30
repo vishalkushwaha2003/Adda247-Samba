@@ -65,7 +65,6 @@ ul li:first-child {
   width: 26px;
   left: 4px;
   bottom: 4px;
- 
   -webkit-transition: 0.4s;
   transition: 0.4s;
   /* box-shadow: inset 1px 1px 2px 0px rgb(255, 124, 167); */
@@ -87,7 +86,6 @@ ul li:first-child {
   background-color: var(--dynamic-before-color);
 }
 
-
 /* Rounded sliders */
 .slider.round {
   border-radius: 34px;
@@ -95,6 +93,47 @@ ul li:first-child {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) { /* Medium screens */
+  .switch {
+    width: 50px;
+    height: 28px;
+  }
+
+  .slider:before {
+    height: 22px;
+    width: 22px;
+    left: 3px;
+    bottom: 3px;
+  }
+
+  .checkbox:checked + .slider:before {
+    -webkit-transform: translateX(22px);
+    -ms-transform: translateX(22px);
+    transform: translateX(22px);
+  }
+}
+
+@media (max-width: 480px) { /* Small screens */
+  .switch {
+    width: 40px;
+    height: 24px;
+  }
+
+  .slider:before {
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+  }
+
+  .checkbox:checked + .slider:before {
+    -webkit-transform: translateX(16px);
+    -ms-transform: translateX(16px);
+    transform: translateX(16px);
+  }
 }
 
 
