@@ -134,10 +134,10 @@ function SlideShow() {
             >
               {currentIndex === index + 1 && index < 3 && (
                 <div
-                  className={`absolute lg:px-20 md:px-16 sm:px-12 px-8 sm:pt-20 pt-40  w-full z-10 flex flex-col gap-5 animate__animated ${
+                  className={`absolute lg:px-20 md:px-16 sm:px-12 px-8 xl:pt-20 lg:pt-28 md:pt-36 pt-40  w-full z-10 flex flex-col gap-5 animate__animated ${
                     currentIndex % 2 === 0
-                      ? "animate__fadeInRight items-end "
-                      : "animate__fadeInLeft items-start  "
+                      ? "animate__fadeInRight sm:items-end items-center "
+                      : "animate__fadeInLeft sm:items-start items-center "
                   } animate__delay-1s`}
                 >
                   <div className="animate__animated animate__fadeInLeft animate__slower">
