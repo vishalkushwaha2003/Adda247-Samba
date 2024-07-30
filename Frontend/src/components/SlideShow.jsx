@@ -134,7 +134,7 @@ function SlideShow() {
             >
               {currentIndex === index + 1 && index < 3 && (
                 <div
-                  className={`absolute p-20  w-full z-10 flex flex-col gap-5 animate__animated ${
+                  className={`absolute lg:px-20 md:px-16 sm:px-12 px-8 sm:pt-20 pt-40  w-full z-10 flex flex-col gap-5 animate__animated ${
                     currentIndex % 2 === 0
                       ? "animate__fadeInRight items-end "
                       : "animate__fadeInLeft items-start  "
