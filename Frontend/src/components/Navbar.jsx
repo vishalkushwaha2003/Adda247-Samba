@@ -16,24 +16,17 @@ const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
-  const courseArray = ['vishall', 'df', 'sdfjs', 'djfjs', 'jsfjs']
+  const courseArray = ['VISHAL', 'KUSHWAHA', 'YAAAAA', 'HAAAAAA', 'LOOOOO'];
 
- 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
-
   };
-
-
 
   const handleClick = (event) => setAnchorEl(event.currentTarget);
 
-
-
-
   const handleClose = (value) => {
     setAnchorEl(null);
-    
+
     // Validate that value is a string
     if (typeof value === 'string') {
       setYear(value);
@@ -42,17 +35,10 @@ const Navbar = () => {
     }
   };
 
-
-
-
-
-
   return (
     <nav className="bg-slate-100 dark:bg-slate-900 duration-200 md:h-20 h-16 fixed w-full z-10 top-0">
-      <div className="lg:w-[95%] w-[96%]  h-full m-auto flex justify-between items-center">
+      <div className="lg:w-[95%] w-[96%] h-full m-auto flex justify-between items-center">
         <img src={logo} alt="Logo" className="object-fill md:h-16 lg:w-32 h-12 w-24 md:w-28" />
-
-        
 
         {/* Buttons with conditional styling based on screen size */}
         <div className="hidden md:flex gap-2">
@@ -82,7 +68,7 @@ const Navbar = () => {
             sx={{
               color: color,
               borderColor: color,
-              "&:hover": { borderColor: color, cursor: 'pointer'},
+              "&:hover": { borderColor: color, cursor: 'pointer' },
 
               fontWeight: 'bold',
               fontSize: '14px',
@@ -96,26 +82,27 @@ const Navbar = () => {
                 padding: '4px 8px',
               },
             }}
-          id="fade-button"
-          aria-controls={open ? 'fade-menu' : undefined}
-          aria-haspopup="true"
-          aria-expanded={open ? 'true' : undefined}
-          onClick={handleClick}
+            id="fade-button"
+            aria-controls={open ? 'fade-menu' : undefined}
+            aria-haspopup="true"
+            aria-expanded={open ? 'true' : undefined}
+            onClick={handleClick}
           >
-            Courses<KeyboardArrowDownOutlinedIcon/>
+            Courses<KeyboardArrowDownOutlinedIcon />
           </Button>
           <Menu
-          id="fade-menu"
-          MenuListProps={{ 'aria-labelledby': 'fade-button' }}
-          anchorEl={anchorEl}
-          open={open}
-          onClose={handleClose}
-          TransitionComponent={Fade}
-        >
-          {courseArray.map((course, idx) => (
-            <MenuItem key={idx} onClick={() => handleClose(course)}>{course}</MenuItem>
-          ))}
-        </Menu>
+            id="fade-menu"
+            MenuListProps={{ 'aria-labelledby': 'fade-button' }}
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            TransitionComponent={Fade}
+            disableScrollLock={true} // Prevent Menu from altering the scrollbar
+          >
+            {courseArray.map((course, idx) => (
+              <MenuItem key={idx} onClick={() => handleClose(course)} sx={{ backgroundColor: 'rgb(241 245 249)', color: 'rgb(2 6 23)', fontWeight: '500', fontSize: 'large', fontFamily: 'revert-layer' }}>{course}</MenuItem>
+            ))}
+          </Menu>
           <Button
             variant="outlined"
             sx={{
@@ -179,27 +166,6 @@ const Navbar = () => {
           >
             About
           </Button>
-          {/* <Button
-            variant="outlined"
-            sx={{
-              color: color,
-              borderColor: color,
-              "&:hover": { borderColor: color },
-              fontWeight: 'bold',
-              fontSize: '14px',
-              padding: '8px 16px',
-              '@media (max-width: 1100px)': { // Medium screens
-                fontSize: '12px',
-                padding: '6px 10px',
-              },
-              '@media (max-width: 768px)': { // Small screens
-                fontSize: '10px',
-                padding: '4px 8px',
-              },
-            }}
-          >
-            Contact
-          </Button> */}
         </div>
 
         {/* Additional components like DarkLightToggleButton and SidebarMenu */}
