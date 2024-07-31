@@ -66,7 +66,7 @@ const SidebarMenu = () => {
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="sm:p-4 p-2 h-[100vh]">
+        <div className="sm:p-4 p-2 flex flex-col justify-between h-[100vh]">
           <div className="flex justify-between items-center bg-red-700 sm:h-[8vh] h-[7vh]">
            
               <div className='sm:h-14 sm:w-14 h-12 w-12 rounded-full border-2  bg-slate-100' style={{borderColor:color}}>
