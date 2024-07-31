@@ -4,14 +4,48 @@ import DarkLightToggleButton from "./DarkLightToggleButton";
 import Button from "@mui/material/Button";
 import logo from "../assets/logo2.png";
 import SidebarMenu from "./SidebarMenu";
+import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
+
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Fade from '@mui/material/Fade';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, toggleTheme, color, changeColor } = useTheme();
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
 
+  const courseArray = ['vishall', 'df', 'sdfjs', 'djfjs', 'jsfjs']
+
+ 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+
   };
+
+
+
+  const handleClick = (event) => setAnchorEl(event.currentTarget);
+
+
+
+
+  const handleClose = (value) => {
+    setAnchorEl(null);
+    
+    // Validate that value is a string
+    if (typeof value === 'string') {
+      setYear(value);
+    } else {
+      console.error('Invalid year value:', value);
+    }
+  };
+
+
+
+
+
 
   return (
     <nav className="bg-slate-100 dark:bg-slate-900 duration-200 md:h-20 h-16 fixed w-full z-10 top-0">
@@ -48,10 +82,11 @@ const Navbar = () => {
             sx={{
               color: color,
               borderColor: color,
-              "&:hover": { borderColor: color },
+              "&:hover": { borderColor: color, cursor: 'pointer'},
+
               fontWeight: 'bold',
               fontSize: '14px',
-              padding: '8px 16px',
+              padding: '8px 10px',
               '@media (max-width: 1100px)': { // Medium screens
                 fontSize: '12px',
                 padding: '6px 10px',
@@ -61,9 +96,26 @@ const Navbar = () => {
                 padding: '4px 8px',
               },
             }}
+          id="fade-button"
+          aria-controls={open ? 'fade-menu' : undefined}
+          aria-haspopup="true"
+          aria-expanded={open ? 'true' : undefined}
+          onClick={handleClick}
           >
-            Courses
+            Courses<KeyboardArrowDownOutlinedIcon/>
           </Button>
+          <Menu
+          id="fade-menu"
+          MenuListProps={{ 'aria-labelledby': 'fade-button' }}
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          TransitionComponent={Fade}
+        >
+          {courseArray.map((course, idx) => (
+            <MenuItem key={idx} onClick={() => handleClose(course)}>{course}</MenuItem>
+          ))}
+        </Menu>
           <Button
             variant="outlined"
             sx={{

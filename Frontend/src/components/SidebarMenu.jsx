@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import { useTheme } from "../context/ColorContext";
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 
 
 
@@ -25,17 +26,18 @@ const SidebarMenu = () => {
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
-        <div className="p-4">
-          <div className="flex justify-between items-center">
+        <div className="sm:p-4 p-2 h-[100vh]">
+          <div className="flex justify-between items-center bg-red-700 h-[8vh]">
             <h2 className="text-xl font-semibold">Sidebar Menu</h2>
             <CloseOutlinedIcon fontSize="large" className="hover:cursor-pointer"  sx={{color:color}} onClick={toggleSidebar}  />
           </div>
-          <ul className="mt-4">
-            <li className="py-2"><a href="#" className="hover:underline">Item 1</a></li>
-            <li className="py-2"><a href="#" className="hover:underline">Item 2</a></li>
-            <li className="py-2"><a href="#" className="hover:underline">Item 3</a></li>
-            <li className="py-2"><a href="#" className="hover:underline">Item 4</a></li>
-          </ul>
+          <div className='h-[80vh] bg-green-700'>
+
+          </div>
+          <div className='h-[8vh]  bg-amber-300 flex justify-center gap-2 items-center font-bold hover:cursor-pointer text-red-600'>
+           <div className='text-2xl'>Logout </div>
+           <LogoutOutlinedIcon fontSize='large'/>
+          </div>
         </div>
       </div>
     </div>
