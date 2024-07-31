@@ -3,12 +3,7 @@
   publish = "build"
   command = "npm run build"
 
-# Settings for redirects (optional)
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-
-# Settings for environment variables (optional)
-# [build.environment]
-#   REACT_APP_API_URL = "https://your-api-url.com"
