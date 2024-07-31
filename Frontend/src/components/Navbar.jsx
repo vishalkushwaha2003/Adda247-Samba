@@ -98,9 +98,23 @@ const Navbar = () => {
             onClose={handleClose}
             TransitionComponent={Fade}
             disableScrollLock={true} // Prevent Menu from altering the scrollbar
+          
           >
             {courseArray.map((course, idx) => (
-              <MenuItem key={idx} onClick={() => handleClose(course)} sx={{ backgroundColor: 'rgb(241 245 249)', color: 'rgb(2 6 23)', fontWeight: '500', fontSize: 'large', fontFamily: 'revert-layer' }}>{course}</MenuItem>
+              <MenuItem key={idx} onClick={() => handleClose(course)} 
+              
+         sx={{
+        backgroundColor: theme === 'dark' ? 'rgb(51 65 85)' : 'rgb(241 245 249)',
+        color: theme === 'dark' ? 'white' : 'rgb(2 6 23)',
+        fontWeight: '500',
+        fontSize: 'large',
+        fontFamily: 'revert-layer',
+        '&:hover': {
+          backgroundColor: theme === 'dark' ? 'rgb(30 41 59)' : 'rgb(230 230 230)',
+        },
+      }}
+              
+              >{course}</MenuItem>
             ))}
           </Menu>
           <Button
