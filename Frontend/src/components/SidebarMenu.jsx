@@ -125,7 +125,13 @@ const SidebarMenu = () => {
               <div class="border-b border-gray-300 p-2  hover:cursor-pointer">ABOUT</div>
               
             </div>
-            <div></div>
+            <div className='sm:font-bold font-medium'>
+            <div class="border-b border-gray-300 p-2  hover:cursor-pointer">STUDENT PROFILE</div>
+            <div class="border-b border-gray-300 p-2  hover:cursor-pointer">CONTACT US</div>
+            <div class="border-b border-gray-300 p-2  hover:cursor-pointer">JOIN COMMUNITY</div>
+
+
+            </div>
           </div>
           <div className="h-[8vh]  bg-amber-300 flex justify-center gap-2 items-center font-bold hover:cursor-pointer text-red-600">
             <div className="text-xl">Logout </div>
