@@ -101,7 +101,7 @@ const Navbar = () => {
           
           >
             {courseArray.map((course, idx) => (
-              <MenuItem key={idx} onClick={() => handleClose(course)} 
+              <MenuItem key={idx} onClick={handleClose} 
               
          sx={{
         backgroundColor: theme === 'dark' ? 'rgb(51 65 85)' : 'rgb(241 245 249)',
