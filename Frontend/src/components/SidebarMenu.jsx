@@ -11,7 +11,7 @@ import Fade from '@mui/material/Fade';
 const SidebarMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const {theme, color } = useTheme();
-  const courseArray = ['VISHAL', 'KUSHWAHA', 'YAAAAA', 'HAAAAAA', 'LOOOOO'];
+  const courseArray = ['SSC CGL', 'SSC GD', 'SSC CHSL', 'SSC MTS', 'SSC CPO','BANK PO CLERK', 'JKSSB', 'RAILWAYS', 'RIMC','NVS','JKP(CONSTABLE & SI)','SAINIK SCHOOL','NDA','CDS','AFCAT'];
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
