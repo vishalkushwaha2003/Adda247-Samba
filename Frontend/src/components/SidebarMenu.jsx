@@ -8,12 +8,13 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Fade from '@mui/material/Fade';
 
-const SidebarMenu = ({navigation}) => {
+const SidebarMenu = ({ navigation }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const {theme, color } = useTheme();
-  const courseArray = ['SSC CGL', 'SSC GD', 'SSC CHSL', 'SSC MTS', 'SSC CPO','BANK PO CLERK', 'JKSSB', 'RAILWAYS', 'RIMC','NVS','JKP(CONSTABLE & SI)','SAINIK SCHOOL','NDA','CDS','AFCAT'];
+  const { theme, color } = useTheme();
+  const courseArray = ['SSC CGL', 'SSC GD', 'SSC CHSL', 'SSC MTS', 'SSC CPO', 'BANK PO CLERK', 'JKSSB', 'RAILWAYS', 'RIMC', 'NVS', 'JKP(CONSTABLE & SI)', 'SAINIK SCHOOL', 'NDA', 'CDS', 'AFCAT'];
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+  const [selectedItem, setSelectedItem] = useState(null);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -22,6 +23,22 @@ const SidebarMenu = ({navigation}) => {
   const handleClick = (event) => setAnchorEl(event.currentTarget);
 
   const handleClose = () => setAnchorEl(null);
+
+  const handleItemClick = (item) => {
+    setSelectedItem(item);
+    navigation(item);
+  };
+
+  const menuItems = [
+    { label: 'HOME', value: 'Home' },
+    { label: 'COURSES', value: 'Courses' },
+    { label: 'FACULTY', value: 'Faculty' },
+    { label: 'REGISTRATION', value: 'Registration' },
+    { label: 'ABOUT', value: 'About' },
+    { label: 'STUDENT PROFILE', value: 'StudentProfile' },
+    { label: 'CONTACT US', value: 'ContactUs' },
+    { label: 'JOIN COMMUNITY', value: 'JoinCommunity' },
+  ];
 
   return (
     <div className="relative z-10">
@@ -58,23 +75,19 @@ const SidebarMenu = ({navigation}) => {
           </div>
           <div className="h-[80vh] py-4">
             <div className="sm:font-bold font-medium md:hidden">
-              <div className="border-b border-gray-300 p-2 hover:cursor-pointer hover:bg-slate-700"onClick={()=>navigation('Home')}>HOME</div>
-              <div className="border-b border-gray-300 p-2 hover:cursor-pointer hover:bg-slate-700"
-                onClick={(event)=>{handleClick(event); navigation('Courses')}}
-
-                id="fade-button"
-                aria-controls={open ? 'fade-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? 'true' : undefined}
-                
-              >
-                COURSES <KeyboardArrowDownOutlinedIcon />
-              </div>
+              {menuItems.slice(0, 5).map((item, idx) => (
+                <div
+                  key={idx}
+                  className={`border-b border-gray-300 p-2 hover:cursor-pointer ${selectedItem === item.value ? 'bg-slate-700' : 'hover:bg-slate-700'}`}
+                  onClick={() => handleItemClick(item.value)}
+                >
+                  {item.label} {item.value === 'Courses' && <KeyboardArrowDownOutlinedIcon />}
+                </div>
+              ))}
               <Menu
                 id="fade-menu"
                 MenuListProps={{ 'aria-labelledby': 'fade-button' }}
                 anchorEl={anchorEl}
-               
                 open={open}
                 onClose={handleClose}
                 TransitionComponent={Fade}
@@ -99,14 +112,17 @@ const SidebarMenu = ({navigation}) => {
                   </MenuItem>
                 ))}
               </Menu>
-              <div className="border-b border-gray-300 p-2 hover:cursor-pointer hover:bg-slate-700" onClick={()=>navigation('Faculty')}>FACULTY</div>
-              <div className="border-b border-gray-300 p-2 hover:cursor-pointer hover:bg-slate-700" onClick={()=>navigation('Resistration')}>REGISTRATION</div>
-              <div className="border-b border-gray-300 p-2 hover:cursor-pointer hover:bg-slate-700" onClick={()=>navigation('About')}>ABOUT</div>
             </div>
             <div className='sm:font-bold font-medium'>
-              <div className="border-b border-gray-300 p-2 hover:cursor-pointer hover:bg-slate-700" onClick={()=>navigation('StudentProfile')}>STUDENT PROFILE</div>
-              <div className="border-b border-gray-300 p-2 hover:cursor-pointer hover:bg-slate-700" onClick={()=>navigation('ContactUs')}>CONTACT US</div>
-              <div className="border-b border-gray-300 p-2 hover:cursor-pointer hover:bg-slate-700" onClick={()=>navigation('JoinCommunity')}>JOIN COMMUNITY</div>
+              {menuItems.slice(5).map((item, idx) => (
+                <div
+                  key={idx}
+                  className={`border-b border-gray-300 p-2 hover:cursor-pointer ${selectedItem === item.value ? 'bg-slate-700' : 'hover:bg-slate-700'}`}
+                  onClick={() => handleItemClick(item.value)}
+                >
+                  {item.label}
+                </div>
+              ))}
             </div>
           </div>
           <div className="h-[8vh] flex justify-center gap-2 items-center font-bold hover:cursor-pointer text-[rgb(255,61,61)]">
