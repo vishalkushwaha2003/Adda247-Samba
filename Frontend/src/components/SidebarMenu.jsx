@@ -27,13 +27,18 @@ const SidebarMenu = ({ navigation }) => {
   const handleItemClick = (item) => {
     setSelectedItem(item);
     navigation(item);
+    if (item === 'Courses') {
+      handleClick(item);
+    } else {
+      handleClose();
+    }
   };
 
   const menuItems = [
     { label: 'HOME', value: 'Home' },
     { label: 'COURSES', value: 'Courses' },
     { label: 'FACULTY', value: 'Faculty' },
-    { label: 'REGISTRATION', value: 'Registration' },
+    { label: 'REGISTRATION', value: 'Resistration' },
     { label: 'ABOUT', value: 'About' },
     { label: 'STUDENT PROFILE', value: 'StudentProfile' },
     { label: 'CONTACT US', value: 'ContactUs' },
@@ -79,7 +84,7 @@ const SidebarMenu = ({ navigation }) => {
                 <div
                   key={idx}
                   className={`border-b border-gray-300 p-2 hover:cursor-pointer ${selectedItem === item.value ? 'bg-slate-700' : 'hover:bg-slate-700'}`}
-                  onClick={() => handleItemClick(item.value)}
+                  onClick={(event) => item.value === 'Courses' ? handleClick(event) : handleItemClick(item.value)}
                 >
                   {item.label} {item.value === 'Courses' && <KeyboardArrowDownOutlinedIcon />}
                 </div>
