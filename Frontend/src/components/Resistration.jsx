@@ -14,42 +14,42 @@ const Registration = () => {
       <div className="w-[90vw] grid sm:grid-cols-2 sm:grid-rows-6 sm:gap-5 gap-3">
         
         <label className="relative flex-1">
-          <input className="input dark:bg-slate-700 bg-slate-300 dark:text-slate-100 text-slate-950 w-full p-4 pt-2.5 outline-none border border-slate-500 rounded-lg" type="text" placeholder="First Name" required />
+          <input className="input dark:bg-slate-700 bg-slate-300 dark:text-slate-100 text-slate-950 w-full sm:px-4 sm:py-2 px-3 py-1 outline-none border border-slate-500 rounded-lg" type="text" placeholder="First Name" required />
         </label>
         <label className="relative flex-1">
-          <input className="input dark:bg-slate-700 bg-slate-300 dark:text-slate-100 text-slate-950 w-full p-4 pt-2.5 outline-none border border-slate-500 rounded-lg" type="text" placeholder="Last Name" required />
+          <input className="input dark:bg-slate-700 bg-slate-300 dark:text-slate-100 text-slate-950 w-full sm:px-4 sm:py-2 px-3 py-1 outline-none border border-slate-500 rounded-lg" type="text" placeholder="Last Name" required />
         </label>
       
       <label className="relative">
-        <input className="input dark:bg-slate-700 bg-slate-300 dark:text-slate-100 text-slate-950 w-full p-4 pt-2.5 outline-none border border-slate-500 rounded-lg" type="number" placeholder="Number" required />
+        <input className="input dark:bg-slate-700 bg-slate-300 dark:text-slate-100 text-slate-950 w-full sm:px-4 sm:py-2 px-3 py-1 outline-none border border-slate-500 rounded-lg" type="number" placeholder="Number" required />
       </label>
       <label className="relative">
-        <input className="input dark:bg-slate-700 bg-slate-300 dark:text-slate-100 text-slate-950 w-full p-4 pt-2.5 outline-none border border-slate-500 rounded-lg" type="number" placeholder="Alternate Number" required />
+        <input className="input dark:bg-slate-700 bg-slate-300 dark:text-slate-100 text-slate-950 w-full sm:px-4 sm:py-2 px-3 py-1 outline-none border border-slate-500 rounded-lg" type="number" placeholder="Alternate Number" required />
       </label>
       <label className="relative">
-        <input className="input dark:bg-slate-700 bg-slate-300 dark:text-slate-100 text-slate-950 w-full p-4 pt-2.5 outline-none border border-slate-500 rounded-lg" type="number" placeholder="Adhar Number" required />
+        <input className="input dark:bg-slate-700 bg-slate-300 dark:text-slate-100 text-slate-950 w-full sm:px-4 sm:py-2 px-3 py-1 outline-none border border-slate-500 rounded-lg" type="number" placeholder="Adhar Number" required />
       </label>
       <label className="relative">
-        <input className="input dark:bg-slate-700 bg-slate-300 dark:text-slate-100 text-slate-950 w-full p-4 pt-2.5 outline-none border border-slate-500 rounded-lg" type="email" placeholder="Email" required />
+        <input className="input dark:bg-slate-700 bg-slate-300 dark:text-slate-100 text-slate-950 w-full sm:px-4 sm:py-2 px-3 py-1 outline-none border border-slate-500 rounded-lg" type="email" placeholder="Email" required />
       </label>
       <label className="relative">
-        <input className="input dark:bg-slate-700 bg-slate-300 dark:text-slate-100 text-slate-950 w-full p-4 pt-2.5 outline-none border border-slate-500 rounded-lg" type="text" placeholder="Father's Name" required />
+        <input className="input dark:bg-slate-700 bg-slate-300 dark:text-slate-100 text-slate-950 w-full sm:px-4 sm:py-2 px-3 py-1 outline-none border border-slate-500 rounded-lg" type="text" placeholder="Father's Name" required />
       </label>
       <label className="relative">
-        <input className="input dark:bg-slate-700 bg-slate-300 dark:text-slate-100 text-slate-950 w-full p-4 pt-2.5 outline-none border border-slate-500 rounded-lg" type="text" placeholder="Father's Occupation" required />
+        <input className="input dark:bg-slate-700 bg-slate-300 dark:text-slate-100 text-slate-950 w-full sm:px-4 sm:py-2 px-3 py-1 outline-none border border-slate-500 rounded-lg" type="text" placeholder="Father's Occupation" required />
       </label>
       <label className="relative">
-        <input className="input dark:bg-slate-700 bg-slate-300 dark:text-slate-100 text-slate-950 w-full p-4 pt-2.5 outline-none border border-slate-500 rounded-lg" type="text" placeholder="Mother's Name" required />
+        <input className="input dark:bg-slate-700 bg-slate-300 dark:text-slate-100 text-slate-950 w-full sm:px-4 sm:py-2 px-3 py-1 outline-none border border-slate-500 rounded-lg" type="text" placeholder="Mother's Name" required />
       </label>
       
       <label className="relative">
-        <input className="input dark:bg-slate-700 bg-slate-300 dark:text-slate-100 text-slate-950 w-full p-4 pt-2.5 outline-none border border-slate-500 rounded-lg" type="password" placeholder="Password" required />
+        <input className="input dark:bg-slate-700 bg-slate-300 dark:text-slate-100 text-slate-950 w-full sm:px-4 sm:py-2 px-3 py-1 outline-none border border-slate-500 rounded-lg" type="password" placeholder="Password" required />
       </label>
       <label className="relative">
-        <input className="input dark:bg-slate-700 bg-slate-300 dark:text-slate-100 text-slate-950 w-full p-4 pt-2.5 outline-none border border-slate-500 rounded-lg" type="password" placeholder="Conform Password" required />
+        <input className="input dark:bg-slate-700 bg-slate-300 dark:text-slate-100 text-slate-950 w-full sm:px-4 sm:py-2 px-3 py-1 outline-none border border-slate-500 rounded-lg" type="password" placeholder="Conform Password" required />
       </label>
       <label className="relative">
-        <input className="input dark:bg-slate-700 bg-slate-300 dark:text-slate-100 text-slate-950 w-full p-4 pt-2.5 outline-none border border-slate-500 rounded-lg" type="password" placeholder="Conform Password" required />
+        <input className="input dark:bg-slate-700 bg-slate-300 dark:text-slate-100 text-slate-950 w-full sm:px-4 sm:py-2 px-3 py-1 outline-none border border-slate-500 rounded-lg" type="password" placeholder="Conform Password" required />
       </label>
       </div>
       {/* <button className="submit border-none outline-none py-2 rounded-lg dark:text-slate-100 font-medium text-slate-950 text-lg transform transition duration-300 ease-in-out  sm:w-96 w-40 m-auto " style={{backgroundColor:color}}>
