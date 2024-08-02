@@ -87,7 +87,7 @@ function SlideShow() {
   }, [currentIndex]);
 
   return (
-    <div className="w-full md:mt-20 mt-16 h-[100vh] ">
+    <div className="w-full  h-[100vh] ">
       <div className="relative h-full bg-slate-500 dark:bg-slate-800 duration-200 overflow-hidden rounded-lg">
         <div
           ref={slideShowRef}

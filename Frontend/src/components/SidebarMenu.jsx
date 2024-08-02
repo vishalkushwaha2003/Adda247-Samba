@@ -8,7 +8,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Fade from '@mui/material/Fade';
 
-const SidebarMenu = () => {
+const SidebarMenu = ({navigation}) => {
   const [isOpen, setIsOpen] = useState(false);
   const {theme, color } = useTheme();
   const courseArray = ['SSC CGL', 'SSC GD', 'SSC CHSL', 'SSC MTS', 'SSC CPO','BANK PO CLERK', 'JKSSB', 'RAILWAYS', 'RIMC','NVS','JKP(CONSTABLE & SI)','SAINIK SCHOOL','NDA','CDS','AFCAT'];
@@ -58,13 +58,15 @@ const SidebarMenu = () => {
           </div>
           <div className="h-[80vh] py-4">
             <div className="sm:font-bold font-medium md:hidden">
-              <div className="border-b border-gray-300 p-2 hover:cursor-pointer">HOME</div>
+              <div className="border-b border-gray-300 p-2 hover:cursor-pointer"onClick={()=>navigation('Home')}>HOME</div>
               <div className="border-b border-gray-300 p-2 hover:cursor-pointer"
+                onClick={(event)=>{handleClick(event); navigation('Courses')}}
+
                 id="fade-button"
                 aria-controls={open ? 'fade-menu' : undefined}
                 aria-haspopup="true"
                 aria-expanded={open ? 'true' : undefined}
-                onClick={handleClick}
+                
               >
                 COURSES <KeyboardArrowDownOutlinedIcon />
               </div>
@@ -97,17 +99,17 @@ const SidebarMenu = () => {
                   </MenuItem>
                 ))}
               </Menu>
-              <div className="border-b border-gray-300 p-2 hover:cursor-pointer">FACULTY</div>
-              <div className="border-b border-gray-300 p-2 hover:cursor-pointer">REGISTRATION</div>
-              <div className="border-b border-gray-300 p-2 hover:cursor-pointer">ABOUT</div>
+              <div className="border-b border-gray-300 p-2 hover:cursor-pointer" onClick={()=>navigation('Faculty')}>FACULTY</div>
+              <div className="border-b border-gray-300 p-2 hover:cursor-pointer" onClick={()=>navigation('Resistration')}>REGISTRATION</div>
+              <div className="border-b border-gray-300 p-2 hover:cursor-pointer" onClick={()=>navigation('About')}>ABOUT</div>
             </div>
             <div className='sm:font-bold font-medium'>
-              <div className="border-b border-gray-300 p-2 hover:cursor-pointer">STUDENT PROFILE</div>
-              <div className="border-b border-gray-300 p-2 hover:cursor-pointer">CONTACT US</div>
-              <div className="border-b border-gray-300 p-2 hover:cursor-pointer">JOIN COMMUNITY</div>
+              <div className="border-b border-gray-300 p-2 hover:cursor-pointer" onClick={()=>navigation('StudentProfile')}>STUDENT PROFILE</div>
+              <div className="border-b border-gray-300 p-2 hover:cursor-pointer" onClick={()=>navigation('ContactUs')}>CONTACT US</div>
+              <div className="border-b border-gray-300 p-2 hover:cursor-pointer" onClick={()=>navigation('JoinCommunity')}>JOIN COMMUNITY</div>
             </div>
           </div>
-          <div className="h-[8vh] flex justify-center gap-2 items-center font-bold hover:cursor-pointer text-red-600">
+          <div className="h-[8vh] flex justify-center gap-2 items-center font-bold hover:cursor-pointer text-[rgb(255,61,61)]">
             <div className="text-xl">Logout </div>
             <LogoutOutlinedIcon fontSize="large" />
           </div>

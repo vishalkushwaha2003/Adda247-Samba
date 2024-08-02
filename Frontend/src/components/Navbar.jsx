@@ -10,7 +10,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Fade from '@mui/material/Fade';
 
-const Navbar = () => {
+const Navbar = ({navigation}) => {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, toggleTheme, color, changeColor } = useTheme();
   const [anchorEl, setAnchorEl] = useState(null);
@@ -35,6 +35,14 @@ const Navbar = () => {
     }
   };
 
+
+
+
+   
+
+
+
+
   return (
     <nav className="bg-slate-100 dark:bg-slate-900 duration-200 md:h-20 h-16 fixed w-full z-10 top-0">
       <div className="lg:w-[95%] w-[96%] h-full m-auto flex justify-between items-center">
@@ -43,6 +51,7 @@ const Navbar = () => {
         {/* Buttons with conditional styling based on screen size */}
         <div className="hidden md:flex gap-2">
           <Button
+            onClick={()=>navigation('Home')}
             variant="outlined"
             sx={{
               color: color,
@@ -64,6 +73,8 @@ const Navbar = () => {
             Home
           </Button>
           <Button
+
+             
             variant="outlined"
             sx={{
               color: color,
@@ -86,13 +97,13 @@ const Navbar = () => {
             aria-controls={open ? 'fade-menu' : undefined}
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
-            onClick={handleClick}
+            onClick={(event)=>{handleClick(event); navigation('Courses')}}
           >
             Courses<KeyboardArrowDownOutlinedIcon />
           </Button>
           <Menu
             id="fade-menu"
-            MenuListProps={{ 'aria-labelledby': 'fade-button' }}
+            MenuListProps={{ 'aria-labelledby': 'fade-button'}}
             anchorEl={anchorEl}
             open={open}
             onClose={handleClose}
@@ -118,6 +129,8 @@ const Navbar = () => {
             ))}
           </Menu>
           <Button
+            onClick={()=>navigation('Faculty')}
+           
             variant="outlined"
             sx={{
               color: color,
@@ -139,6 +152,8 @@ const Navbar = () => {
             Faculty
           </Button>
           <Button
+            onClick={()=>navigation('Resistration')}
+           
             variant="outlined"
             sx={{
               color: color,
@@ -160,6 +175,8 @@ const Navbar = () => {
             Registration
           </Button>
           <Button
+            onClick={()=>navigation('About')}
+
             variant="outlined"
             sx={{
               color: color,
@@ -194,7 +211,7 @@ const Navbar = () => {
               className="h-7 w-7 cursor-pointer rounded-full bg-transparent"
             />
           </div>
-          <SidebarMenu />
+          <SidebarMenu navigation={navigation}/>
         </div>
       </div>
     </nav>
