@@ -44,7 +44,7 @@ const Navbar = ({navigation}) => {
 
 
   return (
-    <nav className="bg-slate-100 dark:bg-slate-900 duration-200 md:h-20 h-16 fixed w-full z-10 top-0">
+    <nav className="bg-slate-200 dark:bg-slate-900 duration-200 md:h-20 h-16 fixed w-full z-10 top-0">
       <div className="lg:w-[95%] w-[96%] h-full m-auto flex justify-between items-center">
         <img src={logo} alt="Logo" className="object-fill md:h-16 lg:w-32 h-12 w-24 md:w-28" />
 

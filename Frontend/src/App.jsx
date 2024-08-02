@@ -43,7 +43,7 @@ function App() {
   };
 
   return (
-    <div className='block'>
+    <div className='min-h-[100vh] dark:bg-slate-800 bg-slate-50 duration-200 '>
       <Navbar navigation={navigation} />
       <div className='md:mt-20 mt-16'>
       {renderComponent()}
