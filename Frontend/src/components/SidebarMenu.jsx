@@ -58,8 +58,8 @@ const SidebarMenu = ({navigation}) => {
           </div>
           <div className="h-[80vh] py-4">
             <div className="sm:font-bold font-medium md:hidden">
-              <div className="border-b border-gray-300 p-2 hover:cursor-pointer"onClick={()=>navigation('Home')}>HOME</div>
-              <div className="border-b border-gray-300 p-2 hover:cursor-pointer"
+              <div className="border-b border-gray-300 p-2 hover:cursor-pointer hover:bg-slate-700"onClick={()=>navigation('Home')}>HOME</div>
+              <div className="border-b border-gray-300 p-2 hover:cursor-pointer hover:bg-slate-700"
                 onClick={(event)=>{handleClick(event); navigation('Courses')}}
 
                 id="fade-button"
@@ -99,14 +99,14 @@ const SidebarMenu = ({navigation}) => {
                   </MenuItem>
                 ))}
               </Menu>
-              <div className="border-b border-gray-300 p-2 hover:cursor-pointer" onClick={()=>navigation('Faculty')}>FACULTY</div>
-              <div className="border-b border-gray-300 p-2 hover:cursor-pointer" onClick={()=>navigation('Resistration')}>REGISTRATION</div>
-              <div className="border-b border-gray-300 p-2 hover:cursor-pointer" onClick={()=>navigation('About')}>ABOUT</div>
+              <div className="border-b border-gray-300 p-2 hover:cursor-pointer hover:bg-slate-700" onClick={()=>navigation('Faculty')}>FACULTY</div>
+              <div className="border-b border-gray-300 p-2 hover:cursor-pointer hover:bg-slate-700" onClick={()=>navigation('Resistration')}>REGISTRATION</div>
+              <div className="border-b border-gray-300 p-2 hover:cursor-pointer hover:bg-slate-700" onClick={()=>navigation('About')}>ABOUT</div>
             </div>
             <div className='sm:font-bold font-medium'>
-              <div className="border-b border-gray-300 p-2 hover:cursor-pointer" onClick={()=>navigation('StudentProfile')}>STUDENT PROFILE</div>
-              <div className="border-b border-gray-300 p-2 hover:cursor-pointer" onClick={()=>navigation('ContactUs')}>CONTACT US</div>
-              <div className="border-b border-gray-300 p-2 hover:cursor-pointer" onClick={()=>navigation('JoinCommunity')}>JOIN COMMUNITY</div>
+              <div className="border-b border-gray-300 p-2 hover:cursor-pointer hover:bg-slate-700" onClick={()=>navigation('StudentProfile')}>STUDENT PROFILE</div>
+              <div className="border-b border-gray-300 p-2 hover:cursor-pointer hover:bg-slate-700" onClick={()=>navigation('ContactUs')}>CONTACT US</div>
+              <div className="border-b border-gray-300 p-2 hover:cursor-pointer hover:bg-slate-700" onClick={()=>navigation('JoinCommunity')}>JOIN COMMUNITY</div>
             </div>
           </div>
           <div className="h-[8vh] flex justify-center gap-2 items-center font-bold hover:cursor-pointer text-[rgb(255,61,61)]">
