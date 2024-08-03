@@ -54,7 +54,7 @@ function CourseComponent() {
           timeout: 500,
           sx: {
             backdropFilter: 'blur(3px)', // Add blur effect
-            backgroundColor: 'rgba(0, 0, 0, 0.6)', // Add background color with transparency
+            backgroundColor: 'rgba(0, 0, 0, 0.5)', // Add background color with transparency
           },
         }}
         disableScrollLock={true}
@@ -77,7 +77,7 @@ function CourseComponent() {
           timeout: 500,
           sx: {
             backdropFilter: 'blur(3px)', // Add blur effect
-            backgroundColor: 'rgba(0, 0, 0, 0.6)', // Add background color with transparency
+            backgroundColor: 'rgba(0, 0, 0, 0.5)', // Add background color with transparency
           },
         }}
         disableScrollLock={true}
