@@ -31,19 +31,19 @@ function CourseComponent() {
   const handleCloseReadMore = () => setOpenReadMore(false);
 
   return (
-    <div className='h-72 bg-slate-500 border-2 rounded-lg grid grid-cols-1 grid-rows-12' style={{ borderColor: color }}>
-      <div className='col-span-1 row-span-3 bg-slate-500 flex justify-center items-center lg:text-5xl font-bold md:text-4xl text-4xl'>SSC CGL</div>
-      <div className='col-span-1 row-span-7 bg-red-700 relative text-wrap overflow-hidden'>
+    <div className='h-72 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-300 border-[2px] rounded-lg grid grid-cols-1 grid-rows-12 shadow-lg dark:hover:shadow-slate-600 hover:shadow-slate-400 duration-200'  style={{ borderColor: color }}>
+      <div className='col-span-1 row-span-3  flex justify-center items-center lg:text-5xl font-bold md:text-4xl text-4xl'>SSC CGL</div>
+      <div className='col-span-1 row-span-7  relative text-wrap overflow-hidden sm:px-5 px-3'>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis consequatur sapiente atque voluptatum ut repellat quisquam cum est id sint magnam tenetur quas, cupiditate ex quibusdam officia nobis, accusamus rem!  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis consequatur sapiente atque voluptatum ut repellat quisquam cum est id sint magnam tenetur quas, cupiditate ex quibusdam officia nobis, accusamus rem!
         <IconButton 
-          style={{ position: 'absolute', bottom: 5, right: 5,width:'50px',backdropFilter:'10px', backgroundColor: 'rgba(0,0,0,0.2'}} 
+          style={{ position: 'absolute', bottom:0, right:10 ,width:'45px',backdropFilter:'blur(3px)', backgroundColor:'rgba(255,255,255,0.1)'}} 
         
           onClick={handleOpenReadMore}>
           <ReadMoreIcon  fontSize='medium' sx={{color:'white'}}/>
         </IconButton>
       </div>
-      <div className='col-span-1 row-span-2 bg-yellow-500 flex justify-center items-center'>
-        <Button variant="outlined" onClick={handleOpenConfirmation}>Primary</Button>
+      <div className='col-span-1 row-span-2  flex justify-center items-center'>
+        <Button variant="outlined" onClick={handleOpenConfirmation} sx={{color:color,borderColor:color,fontWeight:'500','&:hover':{borderColor:color}}}>Primary</Button>
       </div>
       
       <Modal
