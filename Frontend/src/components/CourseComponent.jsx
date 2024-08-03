@@ -49,7 +49,14 @@ function CourseComponent() {
         open={openConfirmation}
         onClose={handleCloseConfirmation}
         closeAfterTransition
-      
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+          sx: {
+            backdropFilter: 'blur(3px)', // Add blur effect
+            backgroundColor: 'rgba(0, 0, 0, 0.6)', // Add background color with transparency
+          },
+        }}
         disableScrollLock={true}
       >
         <Fade in={openConfirmation}>
@@ -65,6 +72,14 @@ function CourseComponent() {
         open={openReadMore}
         onClose={handleCloseReadMore}
         closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+          sx: {
+            backdropFilter: 'blur(3px)', // Add blur effect
+            backgroundColor: 'rgba(0, 0, 0, 0.6)', // Add background color with transparency
+          },
+        }}
         disableScrollLock={true}
       >
         <Fade in={openReadMore}>
