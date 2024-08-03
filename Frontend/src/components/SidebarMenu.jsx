@@ -21,7 +21,7 @@ const SidebarMenu = ({ navigation }) => {
   };
 
   const handleClick = (event) => {
-    
+    setSelectedItem('Courses');
     setAnchorEl(event.currentTarget)  
     navigation('Courses');
   }
