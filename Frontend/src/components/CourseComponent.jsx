@@ -31,7 +31,7 @@ function CourseComponent() {
   const handleCloseReadMore = () => setOpenReadMore(false);
 
   return (
-    <div className='h-72 bg-slate-100 dark:bg-slate-700/50 text-slate-900 dark:text-slate-300 border-[1px]  rounded-lg grid grid-cols-1 grid-rows-12 shadow-lg dark:hover:shadow-slate-600 hover:shadow-slate-400 duration-200'  style={{ borderColor: color }}>
+    <div className='h-72 bg-slate-100 dark:bg-slate-700/50 text-slate-900 dark:text-slate-200 border-[1px]  rounded-lg grid grid-cols-1 grid-rows-12 shadow-lg dark:hover:shadow-slate-600 hover:shadow-slate-400 duration-200'  style={{ borderColor: color }}>
       <div className='col-span-1 row-span-3  flex justify-center items-center lg:text-5xl font-bold md:text-4xl text-4xl' style={{color:color}}>SSC CGL</div>
       <div className='col-span-1 row-span-7  relative text-wrap overflow-hidden sm:px-5 px-3'>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis consequatur sapiente atque voluptatum ut repellat quisquam cum est id sint magnam tenetur quas, cupiditate ex quibusdam officia nobis, accusamus rem!  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis consequatur sapiente atque voluptatum ut repellat quisquam cum est id sint magnam tenetur quas, cupiditate ex quibusdam officia nobis, accusamus rem!
