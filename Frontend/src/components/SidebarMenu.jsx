@@ -20,7 +20,11 @@ const SidebarMenu = ({ navigation }) => {
     setIsOpen(!isOpen);
   };
 
-  const handleClick = (event) => setAnchorEl(event.currentTarget);
+  const handleClick = (event) => {
+    
+    setAnchorEl(event.currentTarget)  
+    navigation('Courses');
+  }
 
   const handleClose = () => setAnchorEl(null);
 
