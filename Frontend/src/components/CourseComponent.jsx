@@ -33,12 +33,13 @@ function CourseComponent() {
   return (
     <div className='h-72 bg-slate-500 border-2 rounded-lg grid grid-cols-1 grid-rows-12' style={{ borderColor: color }}>
       <div className='col-span-1 row-span-3 bg-slate-500 flex justify-center items-center lg:text-5xl font-bold md:text-4xl text-4xl'>SSC CGL</div>
-      <div className='col-span-1 row-span-7 bg-red-700 relative'>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis consequatur sapiente atque voluptatum ut repellat quisquam cum est id sint magnam tenetur quas, cupiditate ex quibusdam officia nobis, accusamus rem!
+      <div className='col-span-1 row-span-7 bg-red-700 relative text-wrap overflow-hidden'>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis consequatur sapiente atque voluptatum ut repellat quisquam cum est id sint magnam tenetur quas, cupiditate ex quibusdam officia nobis, accusamus rem!  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis consequatur sapiente atque voluptatum ut repellat quisquam cum est id sint magnam tenetur quas, cupiditate ex quibusdam officia nobis, accusamus rem!
         <IconButton 
-          style={{ position: 'absolute', bottom: 10, right: 10 }} 
+          style={{ position: 'absolute', bottom: 5, right: 5,width:'50px',backdropFilter:'10px', backgroundColor: 'rgba(0,0,0,0.2'}} 
+        
           onClick={handleOpenReadMore}>
-          <ReadMoreIcon />
+          <ReadMoreIcon  fontSize='medium' sx={{color:'white'}}/>
         </IconButton>
       </div>
       <div className='col-span-1 row-span-2 bg-yellow-500 flex justify-center items-center'>
