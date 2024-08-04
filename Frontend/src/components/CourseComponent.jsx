@@ -110,7 +110,7 @@ function CourseComponent({ name, fullform, description, preparationGuide }) {
             
                <div  
                
-     className=' w-[80vw] m-auto  bg-slate-100/80 dark:bg-slate-900/80 text-slate-900 dark:text-slate-200 border-[1px] rounded-lg flex flex-col gap-5 py-6 shadow-lg dark:hover:shadow-slate-600 hover:shadow-slate-400 duration-200' style={{ borderColor: color }}
+     className=' w-[80vw] m-auto  bg-slate-100/80 dark:bg-slate-800/80 text-slate-900 dark:text-slate-200 border-[1px] rounded-lg flex flex-col gap-5 py-6 shadow-lg dark:hover:shadow-slate-600 hover:shadow-slate-400 duration-200' style={{ borderColor: color }}
                
                
                >
