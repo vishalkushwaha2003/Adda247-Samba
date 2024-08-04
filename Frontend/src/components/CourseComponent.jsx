@@ -118,17 +118,17 @@ function CourseComponent({ name, fullform, description, preparationGuide }) {
         <div className='lg:text-3xl font-bold md:text-2xl text-2xl '>{name}</div>
         <div className='sm:text-md text-sm '>{fullform}</div>
       </div>
-      <div className=' relative text-wrap overflow-hidden sm:px-5 px-3'>
-        <div>
-          <p className='md:text-lg sm:text-md text-sm'>{description}</p>
-          <div className='mx-auto lg:text-lg sm:text-md text-sm font-bold flex flex-col gap-2'>Preparation Guide</div>
+      <div className=' relative text-wrap overflow-hidden sm:px-5 px-3 flex flex-col gap-2'>
+        
+          <div className='md:text-lg sm:text-md text-sm'>{description}</div>
+          <div className='mx-auto lg:text-lg sm:text-md text-sm font-bold'>Preparation Guide</div>
           {preparationGuide.map((step, key) => (
             <div className='flex gap-1 md:text-lg sm:text-md text-sm' key={key}>
               <VerifiedRoundedIcon sx={{ color: color }} fontSize='small' />
               <p>{step}</p>
             </div>
           ))}
-        </div>
+        
        
       </div>
       <div className=' flex justify-around items-center'>
