@@ -9,6 +9,8 @@ import ReadMoreIcon from '@mui/icons-material/ReadMore';
 import Box from '@mui/material/Box';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import VerifiedRoundedIcon from '@mui/icons-material/VerifiedRounded';
+import CheckBoxOutlineBlankOutlinedIcon from '@mui/icons-material/CheckBoxOutlineBlankOutlined';
+import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
 
 const style = {
   position: 'absolute',
@@ -26,6 +28,7 @@ function CourseComponent({name, fullform, description, preparationGuide,courseNa
   const { color, theme } = useTheme();
   const [openConfirmation, setOpenConfirmation] = useState(false);
   const [openReadMore, setOpenReadMore] = useState(false);
+  const [isChecked,setIsChecked] = useState(false);
   
 
   const handleOpenConfirmation = () => setOpenConfirmation(true);
@@ -99,11 +102,24 @@ function CourseComponent({name, fullform, description, preparationGuide,courseNa
         disableScrollLock={true}
       >
         <Fade in={openConfirmation}>
-          <Box sx={{ ...style, width: 200 }} >
-            <h2 id="transition-modal-title">Confirmation</h2>
-            <p id="transition-modal-description">Are you sure you want to proceed?</p>
-            <Button variant="contained" onClick={handleCloseConfirmation}>Confirm</Button>
-            <Button variant="outlined" onClick={handleCloseConfirmation}>Cancel</Button>
+          <Box className='absolute h-[100vh] w-[100vw] overflow-y-scroll pt-56 ' >
+            <div
+            className=' sm:w-96 m-auto w-[80vw] bg-slate-100/80 dark:bg-slate-800/80 text-slate-900 dark:text-slate-200 border-[1px] rounded-lg flex flex-col gap-3 py-5 sm:px-5 px-3 shadow-lg   duration-200' style={{ borderColor: color }}
+            
+            >
+
+            <div className='m-auto lg:text-lg font-bold text-md ' >Confirmation</div>
+            <p >Are you sure you want to proceed?</p>
+            <div className='flex gap-2' >
+              {isChecked?<CheckBoxOutlinedIcon onClick={()=>setIsChecked(false)} sx={{ color: color, borderColor: color, fontWeight: '5d00', '&:hover': { borderColor: color } }}/>:<CheckBoxOutlineBlankOutlinedIcon fontSize='medium' onClick={()=>setIsChecked(true)}  sx={{ color: theme==='dark'?'rgb(203,213,225)':'rgb(15,23,42)', borderColor:theme==='dark'?'rgb(203,213,225)':'rgb(15,23,42)', fontWeight: '400', '&:hover': { borderColor: theme==='dark'?'rgb(203,213,225)':'rgb(15,23,42)' } }}/>}
+              <p>Term and condition</p>
+            </div>
+            <div className='flex justify-around items-center'>
+            {isChecked?<Button variant="contained" onClick={handleCloseConfirmation}>Conform</Button>:<Button disabled variant="contained">Conform</Button>}
+            <Button variant="outlined" onClick={handleCloseReadMore} sx={{ color: 'red', borderColor: 'red', fontWeight: '400', '&:hover': { borderColor: 'red' } }}>Cancel</Button>
+
+            </div>
+            </div>
           </Box>
         </Fade>
       </Modal>
