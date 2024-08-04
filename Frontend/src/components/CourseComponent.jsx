@@ -22,25 +22,28 @@ const style = {
   p: 4,
 };
 
-function CourseComponent({name, fullform, description, preparationGuide,courseNavigationClick,counterEqual}) {
+function CourseComponent({name, fullform, description, preparationGuide,courseNavigationClick,setEmptyValue,counterEqual}) {
   const { color, theme } = useTheme();
   const [openConfirmation, setOpenConfirmation] = useState(false);
   const [openReadMore, setOpenReadMore] = useState(false);
+  
 
   const handleOpenConfirmation = () => setOpenConfirmation(true);
   const handleCloseConfirmation = () => setOpenConfirmation(false);
   const handleOpenReadMore = () => setOpenReadMore(true);
-  const handleCloseReadMore = () => {setOpenReadMore(false);};
+  const handleCloseReadMore = () => setOpenReadMore(false);
+
+  
       
  useEffect(() =>{
-
-     console.log(name)
-     console.log(courseNavigationClick)
-  if(name==courseNavigationClick) {
+      
+   
+  if(name===courseNavigationClick) {
     setOpenReadMore(true);
+    
   };
   
-
+   return setEmptyValue();
  },[courseNavigationClick,counterEqual]);
   
 
@@ -155,7 +158,7 @@ function CourseComponent({name, fullform, description, preparationGuide,courseNa
           </Box>
         </Fade>
       </Modal>
-    </div>
+    </div>  
   );
 }
 

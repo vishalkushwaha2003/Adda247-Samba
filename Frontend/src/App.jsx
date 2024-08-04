@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SlideShow from './components/SlideShow';
 import SidebarMenu from './components/SidebarMenu';
 import Navbar from './components/Navbar';
@@ -12,21 +12,43 @@ import JoinCommunity from './components/JoinCommunity';
 
 function App() {
   const [currentComponent, setCurrentComponent] = useState('SlideShow');
-  const [courseNavigationClick,setCourseNavigationClick] = useState(false);
+  const [courseNavigationClick,setCourseNavigationClick] = useState('');
   const [counterEqual,setCounterEqual]=useState(false);
+  
 
   const navigation = (value) => {
     setCurrentComponent(value);
 
   };
 
+
+ 
+
+
+
+
   const courseNavigation = (value) => {
      
-     setCourseNavigationClick(value);
-     setCounterEqual((current)=>!current);
+ 
+
+    setCourseNavigationClick(value);
     
-  };
-  console.log(counterEqual);
+ 
+    setCounterEqual((current)=>!current);
+   
+   
+};
+
+const setEmptyValue=()=>{
+
+
+  setCourseNavigationClick('');
+}
+
+
+
+ 
+  
 
 
 
@@ -36,7 +58,7 @@ function App() {
       case 'SlideShow':
         return <SlideShow />;
       case 'Courses':  
-        return <Courses courseNavigationClick={courseNavigationClick} counterEqual={counterEqual}/> ;
+        return <Courses courseNavigationClick={courseNavigationClick} counterEqual={counterEqual} setEmptyValue={setEmptyValue}/> ;
       case 'Faculty':  
         return <Faculty/> ;  
       case 'Resistration':  

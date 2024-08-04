@@ -1,7 +1,7 @@
 import React from 'react';
 import CourseComponent from './CourseComponent';
 
-function Courses({courseNavigationClick,counterEqual}) {
+function Courses({courseNavigationClick,counterEqual,setEmptyValue}) {
   const courses = [
     {
       name: "SSC CGL",
@@ -211,6 +211,7 @@ function Courses({courseNavigationClick,counterEqual}) {
           fullform={course.fullform}
           courseNavigationClick={courseNavigationClick}
           counterEqual={counterEqual}
+          setEmptyValue={setEmptyValue}
         />
       ))}
     </div>
