@@ -8,6 +8,14 @@ import IconButton from '@mui/material/IconButton';
 import ReadMoreIcon from '@mui/icons-material/ReadMore';
 import Box from '@mui/material/Box';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
+import VerifiedRoundedIcon from '@mui/icons-material/VerifiedRounded';
+
+
+
+
+
+
+
 const style = {
   position: 'absolute',
   top: '50%',
@@ -20,7 +28,7 @@ const style = {
   p: 4,
 };
 
-function CourseComponent() {
+function CourseComponent({name,fullform,description,preparationGuide}) {
   const { color,theme } = useTheme();
   const [openConfirmation, setOpenConfirmation] = useState(false);
   const [openReadMore, setOpenReadMore] = useState(false);
@@ -32,9 +40,34 @@ function CourseComponent() {
 
   return (
     <div className='h-72 bg-slate-100 dark:bg-slate-700/50 text-slate-900 dark:text-slate-200 border-[1px]  rounded-lg grid grid-cols-1 grid-rows-12 shadow-lg dark:hover:shadow-slate-600 hover:shadow-slate-400 duration-200'  style={{ borderColor: color }}>
-      <div className='col-span-1 row-span-3  flex justify-center items-center lg:text-5xl font-bold md:text-4xl text-4xl' style={{color:color}}>SSC CGL</div>
+      <div className='col-span-1 row-span-3  flex flex-col justify-center items-center ' style={{color:color}}>
+        <div className='lg:text-3xl font-bold md:text-2xl text-2xl '>{name}</div>
+        <div className='sm:text-md text-sm  '>{fullform}</div>
+        
+        </div>
       <div className='col-span-1 row-span-7  relative text-wrap overflow-hidden sm:px-5 px-3'>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis consequatur sapiente atque voluptatum ut repellat quisquam cum est id sint magnam tenetur quas, cupiditate ex quibusdam officia nobis, accusamus rem!  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis consequatur sapiente atque voluptatum ut repellat quisquam cum est id sint magnam tenetur quas, cupiditate ex quibusdam officia nobis, accusamus rem!
+
+        <div>
+            <p>{description}</p>
+             <div className='mx-auto font-bold'>Preparation Guide</div>
+            {preparationGuide.map((step,key) => (
+              <div className='flex gap-1'>
+             <VerifiedRoundedIcon/>
+             <p>{step}</p>
+
+             </div>
+            ))}
+         
+        </div>
+
+
+
+
+
+
+
+
+
         <IconButton 
           style={{
             position: 'absolute',
