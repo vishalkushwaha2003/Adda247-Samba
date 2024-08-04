@@ -115,7 +115,7 @@ function CourseComponent({name, fullform, description, preparationGuide,courseNa
               <p>Term and condition</p>
             </div>
             <div className='flex justify-around items-center'>
-            {isChecked?<Button variant="contained" onClick={()=>{handleCloseConfirmation();handleCloseReadMore(); }}>Conform</Button>:<Button disabled variant="contained">Conform</Button>}
+            {isChecked?<Button variant="contained" onClick={()=>{handleCloseConfirmation();handleCloseReadMore(); }}    sx={{backgroundColor:color, '&:hover': { backgroundColor: color } }} >Conform</Button>:<Button disabled variant="contained">Conform</Button>}
             <Button variant="outlined" onClick={handleCloseConfirmation} sx={{ color: 'red', borderColor: 'red', fontWeight: '400', '&:hover': { borderColor: 'red' } }}>Cancel</Button>
 
             </div>
