@@ -102,7 +102,7 @@ function CourseComponent({name, fullform, description, preparationGuide,courseNa
         disableScrollLock={true}
       >
         <Fade in={openConfirmation}>
-          <Box className='absolute h-[100vh] w-[100vw] overflow-y-scroll pt-56 ' >
+          <Box className='absolute h-[100vh] w-[100vw] overflow-y-scroll pt-[40vh] ' >
             <div
             className=' sm:w-96 m-auto w-[80vw] bg-slate-100/80 dark:bg-slate-800/80 text-slate-900 dark:text-slate-200 border-[1px] rounded-lg flex flex-col gap-3 py-5 sm:px-5 px-3 shadow-lg   duration-200' style={{ borderColor: color }}
             
@@ -115,8 +115,8 @@ function CourseComponent({name, fullform, description, preparationGuide,courseNa
               <p>Term and condition</p>
             </div>
             <div className='flex justify-around items-center'>
-            {isChecked?<Button variant="contained" onClick={handleCloseConfirmation}>Conform</Button>:<Button disabled variant="contained">Conform</Button>}
-            <Button variant="outlined" onClick={handleCloseReadMore} sx={{ color: 'red', borderColor: 'red', fontWeight: '400', '&:hover': { borderColor: 'red' } }}>Cancel</Button>
+            {isChecked?<Button variant="contained" onClick={()=>{handleCloseConfirmation();handleCloseReadMore(); }}>Conform</Button>:<Button disabled variant="contained">Conform</Button>}
+            <Button variant="outlined" onClick={handleCloseConfirmation} sx={{ color: 'red', borderColor: 'red', fontWeight: '400', '&:hover': { borderColor: 'red' } }}>Cancel</Button>
 
             </div>
             </div>
