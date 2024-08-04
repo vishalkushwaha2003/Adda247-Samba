@@ -123,7 +123,7 @@ function CourseComponent({ name, fullform, description, preparationGuide }) {
           <p className='md:text-lg sm:text-md text-sm'>{description}</p>
           <div className='mx-auto lg:text-lg sm:text-md text-sm font-bold flex flex-col gap-2'>Preparation Guide</div>
           {preparationGuide.map((step, key) => (
-            <div className='flex gap-1' key={key}>
+            <div className='flex gap-1 md:text-lg sm:text-md text-sm' key={key}>
               <VerifiedRoundedIcon sx={{ color: color }} fontSize='small' />
               <p>{step}</p>
             </div>
