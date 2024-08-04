@@ -129,19 +129,7 @@ function CourseComponent({ name, fullform, description, preparationGuide }) {
             </div>
           ))}
         </div>
-        <IconButton
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            right: 10,
-            width: '45px',
-            backdropFilter: 'blur(1px)',
-            backgroundColor: theme === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)',
-          }}
-          onClick={handleOpenReadMore}
-        >
-          <ReadMoreIcon fontSize='medium' sx={{ color: color }} />
-        </IconButton>
+       
       </div>
       <div className=' flex justify-around items-center'>
         <Button variant="outlined" onClick={handleOpenConfirmation} sx={{ color: color, borderColor: color, fontWeight: '600', '&:hover': { borderColor: color } }}>JOIN <AddOutlinedIcon fontSize='small' /></Button>
