@@ -105,7 +105,7 @@ const SidebarMenu = ({ navigation,courseNavigation }) => {
                 {courseArray.map((course, idx) => (
                   <MenuItem
                     key={idx}
-                    onClick={()=>{ toggleSidebar();  handleClose(); courseNavigation(course)}}
+                    onClick={()=>{ handleClose(); courseNavigation(course)}}
                     sx={{
                       backgroundColor: theme === 'dark' ? 'rgb(51 65 85)' : 'rgb(241 245 249)',
                       color: theme === 'dark' ? 'white' : 'rgb(2 6 23)',
