@@ -120,7 +120,7 @@ function CourseComponent({name, fullform, description, preparationGuide,courseNa
         disableScrollLock={true}
       >
         <Fade in={openReadMore}>
-          <Box  className=" absolute h-[100vh] w-[100vw] overflow-y-scroll pt-20 pb-10" >
+          <Box  className=" absolute h-[100vh] w-[100vw] overflow-y-scroll pt-20" >
             
                <div  
                

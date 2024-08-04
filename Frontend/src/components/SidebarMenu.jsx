@@ -8,10 +8,10 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Fade from '@mui/material/Fade';
 
-const SidebarMenu = ({ navigation }) => {
+const SidebarMenu = ({ navigation,courseNavigation }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, color } = useTheme();
-  const courseArray = ['SSC CGL', 'SSC GD', 'SSC CHSL', 'SSC MTS', 'SSC CPO', 'BANK PO CLERK', 'JKSSB', 'RAILWAYS', 'RIMC', 'NVS', 'JKP(CONSTABLE & SI)', 'SAINIK SCHOOL', 'NDA', 'CDS', 'AFCAT'];
+  const courseArray = ['SSC CGL', 'SSC GD', 'SSC CHSL', 'SSC MTS', 'SSC CPO', 'BANK PO and CLERK', 'JKSSB', 'RAILWAYS', 'RIMC', 'NVS', 'JKP Constable & SI', 'SAINIK SCHOOL', 'NDA', 'CDS', 'AFCAT'];
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const [selectedItem, setSelectedItem] = useState(null);
@@ -105,7 +105,7 @@ const SidebarMenu = ({ navigation }) => {
                 {courseArray.map((course, idx) => (
                   <MenuItem
                     key={idx}
-                    onClick={handleClose}
+                    onClick={()=>{ toggleSidebar();  handleClose(); courseNavigation(course)}}
                     sx={{
                       backgroundColor: theme === 'dark' ? 'rgb(51 65 85)' : 'rgb(241 245 249)',
                       color: theme === 'dark' ? 'white' : 'rgb(2 6 23)',

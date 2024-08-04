@@ -212,7 +212,7 @@ const Navbar = ({navigation,courseNavigation}) => {
               className="h-7 w-7 cursor-pointer rounded-full bg-transparent"
             />
           </div>
-          <SidebarMenu navigation={navigation}/>
+          <SidebarMenu navigation={navigation} courseNavigation={courseNavigation}/>
         </div>
       </div>
     </nav>
