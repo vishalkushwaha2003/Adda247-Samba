@@ -111,11 +111,11 @@ function CourseComponent({name, fullform, description, preparationGuide,courseNa
             <div className='m-auto lg:text-lg font-bold text-md ' >Confirmation</div>
             <p >Are you sure you want to proceed?</p>
             <div className='flex gap-2' >
-              {isChecked?<CheckBoxOutlinedIcon onClick={()=>setIsChecked(false)} sx={{ color: color, borderColor: color, fontWeight: '500', '&:hover': { borderColor: color } }}/>:<CheckBoxOutlineBlankOutlinedIcon fontSize='medium' onClick={()=>setIsChecked(true)}  sx={{ color: theme==='dark'?'rgb(203,213,225)':'rgb(15,23,42)', borderColor:theme==='dark'?'rgb(203,213,225)':'rgb(15,23,42)', fontWeight: '400', '&:hover': { borderColor: theme==='dark'?'rgb(203,213,225)':'rgb(15,23,42)' } }}/>}
+              {isChecked?<CheckBoxOutlinedIcon className='hover:cursor-pointer' onClick={()=>setIsChecked(false)} sx={{ color: color, borderColor: color, fontWeight: '500', '&:hover': { borderColor: color } }}/>:<CheckBoxOutlineBlankOutlinedIcon className='hover:cursor-pointer' fontSize='medium' onClick={()=>setIsChecked(true)}  sx={{ color: theme==='dark'?'rgb(203,213,225)':'rgb(15,23,42)', borderColor:theme==='dark'?'rgb(203,213,225)':'rgb(15,23,42)', fontWeight: '400', '&:hover': { borderColor: theme==='dark'?'rgb(203,213,225)':'rgb(15,23,42)' } }}/>}
               <p>Term and condition</p>
             </div>
             <div className='flex justify-around items-center'>
-            {isChecked?<Button variant="contained" onClick={()=>{handleCloseConfirmation();handleCloseReadMore(); }}    sx={{backgroundColor:color, '&:hover': { backgroundColor: color } }} >Conform</Button>:<Button disabled variant="contained">Conform</Button>}
+            {isChecked?<Button variant="contained" onClick={()=>{handleCloseConfirmation();handleCloseReadMore(); }}    sx={{backgroundColor:color, '&:hover': { backgroundColor: color } }} >Conform</Button>:<Button disabled  variant="contained">Conform</Button>}
             <Button variant="outlined" onClick={handleCloseConfirmation} sx={{ color: 'red', borderColor: 'red', fontWeight: '400', '&:hover': { borderColor: 'red' } }}>Cancel</Button>
 
             </div>
