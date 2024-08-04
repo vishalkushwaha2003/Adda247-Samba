@@ -110,7 +110,7 @@ const SidebarMenu = ({ navigation }) => {
                       backgroundColor: theme === 'dark' ? 'rgb(51 65 85)' : 'rgb(241 245 249)',
                       color: theme === 'dark' ? 'white' : 'rgb(2 6 23)',
                       fontWeight: '500',
-                      fontSize: 'large',
+                      fontSize: 'medium',
                       fontFamily: 'revert-layer',
                       '&:hover': {
                         backgroundColor: theme === 'dark' ? 'rgb(30 41 59)' : 'rgb(230 230 230)',
