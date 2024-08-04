@@ -10,13 +10,13 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Fade from '@mui/material/Fade';
 
-const Navbar = ({navigation}) => {
+const Navbar = ({navigation,courseNavigation}) => {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, toggleTheme, color, changeColor } = useTheme();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
-  const courseArray = ['SSC CGL', 'SSC GD', 'SSC CHSL', 'SSC MTS', 'SSC CPO','BANK PO CLERK', 'JKSSB', 'RAILWAYS', 'RIMC','NVS','JKP(CONSTABLE & SI)','SAINIK SCHOOL','NDA','CDS','AFCAT'];
+  const courseArray = ['SSC CGL', 'SSC GD', 'SSC CHSL', 'SSC MTS', 'SSC CPO','BANK PO and CLERK', 'JKSSB', 'RAILWAYS', 'RIMC','NVS','JKP Constable & SI','SAINIK SCHOOL','NDA','CDS','AFCAT'];
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -26,13 +26,14 @@ const Navbar = ({navigation}) => {
 
   const handleClose = (value) => {
     setAnchorEl(null);
+   
 
     // Validate that value is a string
-    if (typeof value === 'string') {
-      setYear(value);
-    } else {
-      console.error('Invalid year value:', value);
-    }
+    // if (typeof value === 'string') {
+    //   setYear(value);
+    // } else {
+    //   console.error('Invalid year value:', value);
+    // }
   };
 
 
@@ -112,7 +113,7 @@ const Navbar = ({navigation}) => {
           
           >
             {courseArray.map((course, idx) => (
-              <MenuItem key={idx} onClick={handleClose} 
+              <MenuItem key={idx} onClick={()=>{handleClose(); courseNavigation(course)} }
               
          sx={{
         backgroundColor: theme === 'dark' ? 'rgb(51 65 85)' : 'rgb(241 245 249)',

@@ -1,7 +1,7 @@
 import React from 'react';
 import CourseComponent from './CourseComponent';
 
-function Courses() {
+function Courses({courseNavigationClick,counterEqual}) {
   const courses = [
     {
       name: "SSC CGL",
@@ -209,6 +209,8 @@ function Courses() {
           description={course.description}
           preparationGuide={course.preparationGuide}
           fullform={course.fullform}
+          courseNavigationClick={courseNavigationClick}
+          counterEqual={counterEqual}
         />
       ))}
     </div>

@@ -12,17 +12,31 @@ import JoinCommunity from './components/JoinCommunity';
 
 function App() {
   const [currentComponent, setCurrentComponent] = useState('SlideShow');
+  const [courseNavigationClick,setCourseNavigationClick] = useState(false);
+  const [counterEqual,setCounterEqual]=useState(false);
 
   const navigation = (value) => {
     setCurrentComponent(value);
+
   };
+
+  const courseNavigation = (value) => {
+     
+     setCourseNavigationClick(value);
+     setCounterEqual((current)=>!current);
+    
+  };
+  console.log(counterEqual);
+
+
+
 
   const renderComponent = () => {
     switch (currentComponent) {
       case 'SlideShow':
         return <SlideShow />;
       case 'Courses':  
-        return <Courses/> ;
+        return <Courses courseNavigationClick={courseNavigationClick} counterEqual={counterEqual}/> ;
       case 'Faculty':  
         return <Faculty/> ;  
       case 'Resistration':  
@@ -44,7 +58,7 @@ function App() {
 
   return (
     <div className='min-h-[100vh] dark:bg-slate-800 bg-slate-50 duration-200 '>
-      <Navbar navigation={navigation} />
+      <Navbar navigation={navigation} courseNavigation={courseNavigation} />
       <div className='md:mt-20 mt-16'>
       {renderComponent()}
       </div>

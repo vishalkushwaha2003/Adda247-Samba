@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTheme } from '../context/ColorContext';
 import Button from '@mui/material/Button';
 import Backdrop from '@mui/material/Backdrop';
@@ -22,7 +22,7 @@ const style = {
   p: 4,
 };
 
-function CourseComponent({ name, fullform, description, preparationGuide }) {
+function CourseComponent({name, fullform, description, preparationGuide,courseNavigationClick,counterEqual}) {
   const { color, theme } = useTheme();
   const [openConfirmation, setOpenConfirmation] = useState(false);
   const [openReadMore, setOpenReadMore] = useState(false);
@@ -30,7 +30,20 @@ function CourseComponent({ name, fullform, description, preparationGuide }) {
   const handleOpenConfirmation = () => setOpenConfirmation(true);
   const handleCloseConfirmation = () => setOpenConfirmation(false);
   const handleOpenReadMore = () => setOpenReadMore(true);
-  const handleCloseReadMore = () => setOpenReadMore(false);
+  const handleCloseReadMore = () => {setOpenReadMore(false);};
+      
+ useEffect(() =>{
+
+     console.log(name)
+     console.log(courseNavigationClick)
+  if(name==courseNavigationClick) {
+    setOpenReadMore(true);
+  };
+  
+
+ },[courseNavigationClick,counterEqual]);
+  
+
 
   return (
     <div className='h-72 bg-slate-100 dark:bg-slate-700/50 text-slate-900 dark:text-slate-200 border-[1px] rounded-lg grid grid-cols-1 grid-rows-12 shadow-lg dark:hover:shadow-slate-600 hover:shadow-slate-400 duration-200' style={{ borderColor: color }}>
@@ -59,6 +72,7 @@ function CourseComponent({ name, fullform, description, preparationGuide }) {
             backgroundColor: theme === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)',
           }}
           onClick={handleOpenReadMore}
+          
         >
           <ReadMoreIcon fontSize='medium' sx={{ color: color }} />
         </IconButton>
