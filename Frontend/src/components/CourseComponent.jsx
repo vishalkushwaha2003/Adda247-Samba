@@ -40,7 +40,7 @@ function CourseComponent({name,fullform,description,preparationGuide}) {
 
   return (
     <div className='h-72 bg-slate-100 dark:bg-slate-700/50 text-slate-900 dark:text-slate-200 border-[1px]  rounded-lg grid grid-cols-1 grid-rows-12 shadow-lg dark:hover:shadow-slate-600 hover:shadow-slate-400 duration-200'  style={{ borderColor: color }}>
-      <div className='col-span-1 row-span-3  flex flex-col justify-center items-center ' style={{color:color}}>
+      <div className='col-span-1 row-span-3  flex flex-col justify-center items-center md:px-3 px-2' style={{color:color}}>
         <div className='lg:text-3xl font-bold md:text-2xl text-2xl '>{name}</div>
         <div className='sm:text-md text-sm  '>{fullform}</div>
         
@@ -48,11 +48,11 @@ function CourseComponent({name,fullform,description,preparationGuide}) {
       <div className='col-span-1 row-span-7  relative text-wrap overflow-hidden sm:px-5 px-3'>
 
         <div>
-            <p>{description}</p>
+            <p className='md:text-lg sm:text-md text-sm'>{description}</p>
              <div className='mx-auto font-bold'>Preparation Guide</div>
             {preparationGuide.map((step,key) => (
               <div className='flex gap-1'>
-             <VerifiedRoundedIcon/>
+             <VerifiedRoundedIcon sx={{color:color}}/>
              <p>{step}</p>
 
              </div>
