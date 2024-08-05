@@ -10,7 +10,7 @@ function SocialMediaCard({ icons, name }) {
   const backgroundImage = theme === 'dark' ? lightBackground: darkBackground;
 
   return (
-    <div className="relative h-60 bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-slate-200 rounded-lg duration-200 hover:shadow-lg dark:hover:shadow-slate-950 hover:shadow-slate-400 overflow-hidden grid grid-cols-1 grid-rows-12">
+    <div className="relative h-60 bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-slate-200 rounded-lg duration-200 hover:shadow-lg dark:hover:shadow-slate-950 hover:shadow-slate-400 overflow-hidden grid grid-cols-1 grid-rows-12 border-[1px] border-slate-500/50 ">
       <div
         className="absolute inset-0"
         style={{

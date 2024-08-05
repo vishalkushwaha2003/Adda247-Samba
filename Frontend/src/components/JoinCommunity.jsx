@@ -7,7 +7,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 function JoinCommunity() {
   const name=['WhatsApp', 'Instagram', 'Facebook'];
   return (
-    <div className='w-[80vw]  grid md:grid-cols-3 md:grid-rows-1 sm:grid-cols-2 sm:grid-rows-2 md:gap-8 gap-5 grid-cols-1 grid-rows-3 m-auto pt-[20vh] '>
+    <div className='w-[80vw]  grid md:grid-cols-3 md:grid-rows-1 sm:grid-cols-2 sm:grid-rows-2 md:gap-8 gap-5 grid-cols-1 grid-rows-3 m-auto md:py-[20vh] sm:py-[10vh] py-[5vh] '>
       <SocialMediaCard icons={<WhatsAppIcon sx={{
              width:'100%',
              height:'100%',
