@@ -12,7 +12,7 @@ function FacultyCard() {
     <div className='lg:w-[60vw] sm:w-[80vw] w-[90vw] m-auto bg-slate-200/80 dark:bg-slate-700 rounded-lg justify-start items-start sm:p-8 p-5 duration-200'>
       <img 
         src={photo}  
-        className='h-60 w-60 object-cover sm:float-left float-none sm:mr-5   mx-auto sm:mb-3 mb-10 rounded-lg shadow-lg shadow-slate-950' 
+        className='h-60 w-60 object-cover sm:float-left float-none sm:mr-5   mx-auto sm:mb-2 mb-6 rounded-lg shadow-lg shadow-slate-950' 
         alt="Faculty Photo" 
       />
       <p className='text-slate-800 dark:text-slate-300 duration-200 font-medium md:text-lg text-md'>
