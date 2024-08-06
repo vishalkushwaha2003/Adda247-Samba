@@ -72,7 +72,7 @@ function ContactUs() {
         
         <label className="relative flex-1">
         <textarea
-  className="input dark:bg-slate-700 bg-slate-300 dark:text-slate-100 h-40 md:font-medium font-normal text-slate-950 w-full sm:px-4 sm:py-2 px-3 py-2  outline-none border border-slate-500 rounded-lg"
+  className="input dark:bg-slate-700 bg-slate-300 dark:text-slate-100 h-40 md:font-medium font-normal text-slate-950 w-full sm:px-4 sm:py-2 px-3 py-2  outline-none border border-slate-500 rounded-lg duration-200"
   placeholder="Type your message ..."
   required
  
@@ -81,7 +81,7 @@ function ContactUs() {
 
         </label>
         <label className="relative flex-1">
-          <input className="input dark:bg-slate-700 bg-slate-300 dark:text-slate-100 md:font-medium font-normal text-slate-950 w-full sm:px-4 sm:py-2 px-3 py-2 outline-none border border-slate-500 rounded-lg" type="number" placeholder="Phone number" required />
+          <input className="input dark:bg-slate-700 bg-slate-300 dark:text-slate-100 md:font-medium font-normal text-slate-950 w-full sm:px-4 sm:py-2 px-3 py-2 outline-none border border-slate-500 rounded-lg duration-200" type="number" placeholder="Phone number" required />
         </label>
       
      
