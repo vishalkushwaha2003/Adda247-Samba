@@ -7,11 +7,12 @@ import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDown
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Fade from '@mui/material/Fade';
+import { useEffect } from 'react';
 
-const SidebarMenu = ({ navigation,courseNavigation }) => {
+const SidebarMenu = ({ navigation,courseNavigation,currentComponent }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, color } = useTheme();
-  const courseArray = ['SSC CGL', 'SSC GD', 'SSC CHSL', 'SSC MTS', 'SSC CPO', 'BANK PO and CLERK', 'JKSSB', 'RAILWAYS', 'RIMC', 'NVS', 'JKP Constable & SI', 'SAINIK SCHOOL', 'NDA', 'CDS', 'AFCAT'];
+  const courseArray = ['SSC CGL', 'SSC GD','SSC CHSL', 'SSC MTS', 'SSC CPO', 'BANK PO and CLERK', 'JKSSB', 'RAILWAYS', 'RIMC', 'NVS', 'JKP Constable & SI', 'SAINIK SCHOOL', 'NDA', 'CDS', 'AFCAT'];
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const [selectedItem, setSelectedItem] = useState(null);
@@ -19,6 +20,17 @@ const SidebarMenu = ({ navigation,courseNavigation }) => {
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
+
+
+useEffect(()=>{
+    setSelectedItem(currentComponent)
+
+
+},[currentComponent])
+
+
+
+
 
   const handleClick = (event) => {
     setSelectedItem('Courses');

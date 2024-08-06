@@ -80,7 +80,7 @@ const setEmptyValue=()=>{
 
   return (
     <div className='min-h-[100vh] dark:bg-slate-800 bg-slate-50 duration-200 '>
-      <Navbar navigation={navigation} courseNavigation={courseNavigation} />
+      <Navbar navigation={navigation} courseNavigation={courseNavigation} currentComponent={currentComponent} />
       <div className='md:mt-20 mt-16'>
       {renderComponent()}
       </div>

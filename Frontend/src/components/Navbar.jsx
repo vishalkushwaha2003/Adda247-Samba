@@ -10,7 +10,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Fade from '@mui/material/Fade';
 
-const Navbar = ({navigation,courseNavigation}) => {
+const Navbar = ({navigation,courseNavigation,currentComponent}) => {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, toggleTheme, color, changeColor } = useTheme();
   const [anchorEl, setAnchorEl] = useState(null);
@@ -212,7 +212,7 @@ const Navbar = ({navigation,courseNavigation}) => {
               className="h-7 w-7 cursor-pointer rounded-full bg-transparent"
             />
           </div>
-          <SidebarMenu navigation={navigation} courseNavigation={courseNavigation}/>
+          <SidebarMenu navigation={navigation} courseNavigation={courseNavigation} currentComponent={currentComponent}/>
         </div>
       </div>
     </nav>
