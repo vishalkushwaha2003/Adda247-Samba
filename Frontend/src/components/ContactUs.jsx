@@ -7,6 +7,7 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import Tooltip from '@mui/material/Tooltip';
 import {useTheme} from '../context/ColorContext';
 import { Button } from '@mui/material';
+import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
 
 
 function ContactUs() {
@@ -22,7 +23,7 @@ function ContactUs() {
         setTooltipText('Copied!');
         setTimeout(() => {
           setTooltipText('Copy to clipboard');
-        }, 2000);
+        }, 1000);
       })
       .catch((err) => {
         console.error('Failed to copy: ', err);
@@ -38,14 +39,15 @@ function ContactUs() {
         <div className='flex  gap-5 xs:flex-col lg:text-lg sm:text-md text-sm'>
           <div className='flex items-center  '>
             <LocalPhoneIcon fontSize='small' /> 7889570998
-            <Tooltip title={tooltipText} onClose={() => setTooltipText('Copy to clipboard')} placement='right'>
-              <ContentCopyIcon fontSize='small' sx={{color:clickNumber==='7889570998'? color:''}} className='ml-2 cursor-pointer' onClick={() => copyToClipboard('7889570998')} />
+            <Tooltip title={tooltipText} onClose={() => setTooltipText('Copy to clipboard')} placement='top'>
+              {tooltipText==='Copied!'&& clickNumber==='7889570998'?<CheckBoxOutlinedIcon fontSize='small' className='ml-2 cursor-pointer'  sx={{color:clickNumber==='7889570998'? color:''}}/>:<ContentCopyIcon fontSize='small' className='ml-2 cursor-pointer' onClick={() => copyToClipboard('7889570998')} />}
             </Tooltip>
           </div>
           <div className='flex items-center '>
             <LocalPhoneIcon fontSize='small'/> 9469268729
-            <Tooltip title={tooltipText} onClose={() => setTooltipText('Copy to clipboard')} placement='right'>
-              <ContentCopyIcon fontSize='small' sx={{color:clickNumber==='9469268729'? color:''}} className='ml-2 cursor-pointer' onClick={() => copyToClipboard('9469268729')} />
+            <Tooltip title={tooltipText} onClose={() => setTooltipText('Copy to clipboard')} placement='top'>
+            {tooltipText==='Copied!'&& clickNumber==='9469268729'?<CheckBoxOutlinedIcon fontSize='small' className='ml-2 cursor-pointer'  sx={{color:clickNumber==='9469268729'? color:''}}/>:<ContentCopyIcon fontSize='small' className='ml-2 cursor-pointer' onClick={() => copyToClipboard('9469268729')} />}
+
             </Tooltip>
           </div>
         </div>
