@@ -9,7 +9,7 @@ function FacultyCard() {
     const { color } = useTheme();
 
   return (
-    <div className='lg:w-[60vw] w-[80vw] m-auto bg-slate-200/80 dark:bg-slate-700 rounded-lg justify-start items-start sm:p-8 p-5 duration-200'>
+    <div className='lg:w-[60vw] sm:w-[80vw] w-[90vw] m-auto bg-slate-200/80 dark:bg-slate-700 rounded-lg justify-start items-start sm:p-8 p-5 duration-200'>
       <img 
         src={photo}  
         className='h-60 w-60 object-cover sm:float-left float-none sm:mr-5   mx-auto sm:mb-3 mb-10 rounded-lg shadow-lg shadow-slate-950' 
