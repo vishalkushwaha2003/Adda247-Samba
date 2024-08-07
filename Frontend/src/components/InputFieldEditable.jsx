@@ -22,16 +22,16 @@ const InputFieldEditable = ({inputType,lableName,inputValue}) => {
   }
 
   return (
-    <div className="flex flex-col items-start">
+    <div className="flex flex-col items-start mx-2  ">
       <label className="font-normal text-md text-slate-500  dark:text-slate-400 ">{lableName}</label>
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center space-x-1">
         
         <input
           type={inputType}
           value={name}
           onChange={handleInputChange}
           disabled={!isEditable}
-          className={`border border-slate-200 dark:border-slate-700  rounded-md px-2 py-1 outline-none duration-200 ${
+          className={`h-12 lg:w-44 xl:w-[18vw] md:w-[28vw] sm:w-[30vw] w-[70vw] border border-slate-200 dark:border-slate-700  rounded-md px-2 py-1 outline-none duration-200 ${
             isEditable ? 'dark:bg-slate-800/50 bg-slate-100 text-slate-800 dark:text-slate-200 font-normal ' : 'dark:bg-slate-600/50 bg-gray-300 font-medium text-slate-800/80 dark:text-slate-200/80 '
           }`}
           style={{borderColor:isEditable ? color:''}}
