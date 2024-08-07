@@ -45,3 +45,8 @@ const InputFieldEditable = ({inputType,lableName,inputValue}) => {
 };
 
 export default InputFieldEditable;
+
+
+
+
+
