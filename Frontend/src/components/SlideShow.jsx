@@ -104,7 +104,7 @@ function SlideShow() {
               
               
               <div className="flex items-center justify-center  bg-transparent">
-       <TextTypeWriter text="Hello, welcome to my website" speed={100} currentIndex={currentIndex}/>
+       <TextTypeWriter text="Hello!,Welcome to Adda-247 Samba" speed={100} currentIndex={currentIndex}/>
     </div>
 
 

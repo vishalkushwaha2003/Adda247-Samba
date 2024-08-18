@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useTheme } from '../context/ColorContext';
 
 const TextTypeWriter = ({ text, speed, currentIndex }) => {
+
+
+  const { color } = useTheme();
+
   const [displayedText, setDisplayedText] = useState('');
    console.log(displayedText)
   useEffect(() => {
@@ -23,7 +28,7 @@ const TextTypeWriter = ({ text, speed, currentIndex }) => {
   }, [text, speed, currentIndex]);
 
   return (
-    <div className="text-lg font-mono">
+    <div className="sm:text-2xl text-xl font-mono font-bold " style={{color:'black'}}>
       {displayedText}
       <span className="animate-pulse">|</span>
     </div>
