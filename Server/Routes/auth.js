@@ -5,4 +5,4 @@ const router = express.Router(); // Corrected 'router' to 'Router'
 
 router.post("/register", createUser).post("/login", loginUser);
 
-export default router;
+export default router; 

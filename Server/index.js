@@ -1,6 +1,6 @@
 import express from "express";
 import cookieParser from "cookie-parser";
-import jsonwebtoken from "jsonwebtoken";
+import { isAuthenticated } from "./Middlewares/middleware.js";
 import cors from "cors";
 import mongoose from "mongoose";
 import path from "path";
@@ -14,11 +14,15 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 dotenv.config();
-
+// const  pass= rE0I6wq64Z7w2xh3
 try {
-  mongoose.connect("mongodb://localhost:27017").then(() => {
-    console.log("databsae connected");
-  });
+  mongoose
+    .connect(
+      "mongodb://vishal2003kushwaha:rE0I6wq64Z7w2xh3@cluster0-shard-00-00.i7sg8.mongodb.net:27017,cluster0-shard-00-01.i7sg8.mongodb.net:27017,cluster0-shard-00-02.i7sg8.mongodb.net:27017/?ssl=true&replicaSet=atlas-6s7bst-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Cluster0"
+    )
+    .then(() => {
+      console.log("databsae connected");
+    });
 } catch (err) {
   console.log(err);
 }
@@ -28,7 +32,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/auth", authRouter);
-app.use("/user", userRouter);
+app.use("/user", isAuthenticated, userRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
