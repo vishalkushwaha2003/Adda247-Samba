@@ -15,6 +15,7 @@
     "@mui/icons-material": "^5.16.5",
     "@mui/material": "^5.16.5",
     "animate.css": "^4.1.1",
+    "ldrs": "^1.0.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
