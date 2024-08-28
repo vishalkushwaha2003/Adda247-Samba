@@ -29,6 +29,7 @@ async function createUser(req, res) {
     // Set the cookie and respond with the user object
     res.cookie("token", token).status(200).json(user);
   } catch (err) {
+    console.log(err.message)
     res.status(500).json({ msg: err.message });
   }
 }
