@@ -13,7 +13,7 @@ import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
 import 'ldrs/grid';
 import CongratulationPage from "./CongratulationPage";
 
-const Registration = () => {
+const Registration = ({profileFromCongratulations,coursesFromCongratulations}) => {
   const { theme, toggleTheme, color, changeColor } = useTheme();
   const [isTicked, setIsTicked] = useState(false);
   const [fileUploadError,setFileUploadError]=useState(null);
@@ -23,6 +23,7 @@ const Registration = () => {
   const [showModal, setShowModal] = useState(false);
   const [successAnimation,setSuccessAnimation] = useState(false);
   const [token,setToken]=useState(null)
+  const [data,setData]=useState({})
 
             
  
@@ -219,6 +220,7 @@ const Registration = () => {
 
 
     const data = await response.json(); 
+    setData(data);
     console.log("Response from server:", data);
 
     if (data && data.token) {
@@ -306,7 +308,7 @@ const removeToken=()=>{
           </p>
         </form>
       ) : (
-        <CongratulationPage removeToken={removeToken}/>
+        <CongratulationPage removeToken={removeToken} data={data} profileFromCongratulations={profileFromCongratulations} coursesFromCongratulations={coursesFromCongratulations}/>
       )}
       <Modal
         open={openPreview}

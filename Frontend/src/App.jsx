@@ -22,7 +22,13 @@ function App() {
   };
 
 
- 
+ const profileFromCongratulations =(value)=>{
+       setCurrentComponent(value);
+ };
+
+ const coursesFromCongratulations = (value)=>{
+  setCurrentComponent(value);
+ }
 
 
 
@@ -62,7 +68,7 @@ const setEmptyValue=()=>{
       case 'Faculty':  
         return <Faculty/> ;  
       case 'Resistration':  
-        return<Resistration/> ;
+        return<Resistration profileFromCongratulations={profileFromCongratulations} coursesFromCongratulations={coursesFromCongratulations}/> ;
       case 'About':  
         return<About/> ; 
       case 'ContactUs':  
