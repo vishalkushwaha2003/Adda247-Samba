@@ -11,6 +11,7 @@ import CheckBoxOutlineBlankOutlinedIcon from "@mui/icons-material/CheckBoxOutlin
 import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
 
 import 'ldrs/grid';
+import CongratulationPage from "./CongratulationPage";
 
 const Registration = () => {
   const { theme, toggleTheme, color, changeColor } = useTheme();
@@ -305,7 +306,7 @@ const removeToken=()=>{
           </p>
         </form>
       ) : (
-        <div >there is ui after the successful form submition <Button onClick={removeToken} className="">remov token</Button> </div>
+        <CongratulationPage removeToken={removeToken}/>
       )}
       <Modal
         open={openPreview}
